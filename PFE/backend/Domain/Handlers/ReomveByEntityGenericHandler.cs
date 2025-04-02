@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProjetPoulinaDomain.Handler
+namespace Domain.Handler
 {
     public class ReomveByEntityGenericHandler<TEntity> : IRequestHandler<RemoveByEntityGenericCommand<TEntity>, string> where TEntity : class
 

@@ -32,3 +32,4 @@ C:\Users\Mahdi Jouini\source\repos\PFE\backend\Data\obj\Debug\net8.0\refint\Data
 C:\Users\Mahdi Jouini\source\repos\PFE\backend\Data\obj\Debug\net8.0\Data.pdb
 C:\Users\Mahdi Jouini\source\repos\PFE\backend\Data\obj\Debug\net8.0\Data.genruntimeconfig.cache
 C:\Users\Mahdi Jouini\source\repos\PFE\backend\Data\obj\Debug\net8.0\ref\Data.dll
+C:\Users\Mahdi Jouini\source\repos\PFE\backend\Data\obj\Debug\net8.0\Data.sourcelink.json

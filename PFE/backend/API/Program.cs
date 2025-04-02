@@ -12,6 +12,7 @@ using MediatR;
 using Domain.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,23 +24,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register the repository implementation (open generic registration)
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
+
 // Add MediatR scanning for both assemblies
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()); // API assembly
 });
 
-builder.Services.AddTransient<IRequestHandler<GetByIDGeneric<Utilisateur>, Utilisateur>,
-    GetGenericByIDHandler<Utilisateur>>();
-
-// If you explicitly registered the handler for Utilisateur (closed version), you can do:
-builder.Services.AddTransient<
-    MediatR.IRequestHandler<GetAllGeneric<Utilisateur>, IEnumerable<Domain.Models.Utilisateur>>,
-    GetAllGenericHandler<Utilisateur>>();
-
-builder.Services.AddTransient<IRequestHandler<PostGeneric<Utilisateur>, string>, PostGenericHandler<Utilisateur>>();
-
-
+builder.Services
+    .RegisterGenericHandlerFor<Utilisateur>();
 
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MapperProfiles));

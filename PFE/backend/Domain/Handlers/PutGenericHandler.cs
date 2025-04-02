@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProjetPoulinaDomain.Handler
+namespace Domain.Handler
 {
 
     public class PutGenericHandler<TEntity> : IRequestHandler<PutGeneric<TEntity>, string> where TEntity : class

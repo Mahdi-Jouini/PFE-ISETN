@@ -26,3 +26,4 @@ C:\Users\Mahdi Jouini\source\repos\PFE\backend\Domain\obj\Debug\net8.0\refint\Do
 C:\Users\Mahdi Jouini\source\repos\PFE\backend\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\Mahdi Jouini\source\repos\PFE\backend\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
 C:\Users\Mahdi Jouini\source\repos\PFE\backend\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Users\Mahdi Jouini\source\repos\PFE\backend\Domain\obj\Debug\net8.0\Domain.sourcelink.json
