@@ -1,0 +1,20 @@
+<div class="input-label-container">
+    <label class="input-label" >{{label}}</label>
+    <div 
+        #inputContainer
+        class="input-container"
+        [style.background]="backgroundStyle"
+    >
+        <input 
+        #inputElement
+        [type]="type"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        class="input-field"
+        [(ngModel)]="value"
+        (ngModelChange)="onInputChange($event)"
+        (blur)="onTouched()"
+        [name]="name"
+        />
+    </div>
+</div>

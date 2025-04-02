@@ -1,0 +1,30 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+:root {
+    --background-color: #ffffff;
+    ---input-background-color: #9ca3af;
+    --text-color: #333333;
+    --primary-color: #3f51b5;
+    /* other light theme variables */
+  } 
+  .dark-theme {
+    --background-color: #121212;
+    ---input-background-color: #404040;
+    --text-color: #ffffff;
+    --primary-color: #7986cb;
+    /* other dark theme variables */
+  }
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block;
+    margin: 0;
+    padding: 0;    
+  }
+  .icon-button{
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }

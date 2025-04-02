@@ -1,0 +1,22 @@
+<div class="login">
+    <div class="hader">
+    </div>
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+        <CustomInput
+            label="Email Address"
+            type="text"
+            placeholder="Enter your name"
+            [(ngModel)]="emailAddress"
+            name="emailAddress"
+        />
+        <CustomInput
+            label="Password"
+            type="text"
+            placeholder="Enter your name"
+            [(ngModel)]="password"
+            name="password"
+        />
+        <button type="submit" >Sousou</button>
+    </form>
+  </div>
+  

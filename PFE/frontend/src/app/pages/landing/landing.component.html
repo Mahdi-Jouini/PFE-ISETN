@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="radial-gradient"></div>
+
+    <div class="content">
+        <h2>Unleash your team's potential with agile project management. Join the revolution today!</h2>
+        <div class="singin-signup">
+            <button class="signin" (click)="openSignIn()">
+                <span class="signin-content">Sign In </span>
+            </button>
+            <button class="learn-more" (click)="openSignUp()">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Sign up</span>
+            </button>
+        </div>
+    </div>
+    <div class="graps">
+    </div>
+    <app-modal 
+        [isOpen]="isSignUpOpen" 
+        title="Confirm Action"
+        (closeModal)="onSignUpClose()"
+        (confirmModal)="onSignUpConfirm()"
+    >
+        <app-signup/>
+    </app-modal>
+    <app-modal 
+    [isOpen]="isSignInOpen" 
+    title="Confirm Action"
+    (closeModal)="onSignInClose()"
+    (confirmModal)="onSignInConfirm()"
+    >
+        <app-signin/>
+    </app-modal>
+</div>

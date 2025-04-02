@@ -1,0 +1,48 @@
+<div class="login">
+  <div class="hader">
+  </div>
+  <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+  <div class="form-row">
+      <div class="form-col">
+        <CustomInput
+          label="First name"
+          type="text"
+          placeholder="Enter your first name"
+          [(ngModel)]="firstName"
+          name="firstName"
+      />
+      </div>
+      <div class="form-col">
+        <CustomInput
+          label="Last name"
+          type="text"
+          placeholder="Enter your Last name"
+          [(ngModel)]="lastName"
+          name="lastName"
+      />
+      </div>
+  </div>
+  <CustomInput
+  label="Email Address"
+  type="text"
+  placeholder="Enter your name"
+  [(ngModel)]="emailAddress"
+  name="emailAddress"
+  />
+  <CustomInput
+  label="Password"
+  type="text"
+  placeholder="Enter your name"
+  [(ngModel)]="password"
+  name="password"
+  />
+  <CustomInput
+  label="Confirm Password"
+  type="text"
+  placeholder="Enter your name"
+  [(ngModel)]="confirmPassword"
+  name="confirmPassword"
+  />
+  <button type="submit" >Sousou</button>
+  </form>
+</div>
