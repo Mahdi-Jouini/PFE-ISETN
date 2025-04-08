@@ -1,0 +1,21 @@
+<div class="otp">
+    <div class="otp-container">
+        <div *ngIf="title || subtitle">
+            <h3 *ngIf="title">{{ title }}</h3>
+            <p *ngIf="subtitle">{{ subtitle }}</p>
+        </div>
+        <div class="fields">
+            <input *ngFor="let digit of otpArray; let i = index" 
+                  [(ngModel)]="otp[i]"
+                  #otpInput
+                  maxlength="1"
+                  class="otp-field"
+                  type="text"
+                  attr.inputmode="{{ allowAlphanumeric ? 'text' : 'numeric' }}"
+                  (input)="onOtpInputChange(i, $event)"
+                  (keydown)="onKeyDown(i, $event)"
+                  (paste)="onPaste($event, i)"
+                  autocomplete="one-time-code">
+        </div>
+    </div>
+</div>

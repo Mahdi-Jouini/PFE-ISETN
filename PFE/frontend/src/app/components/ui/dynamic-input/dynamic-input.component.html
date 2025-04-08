@@ -6,6 +6,7 @@
         [style.background]="backgroundStyle"
     >
         <input 
+        *ngIf="type !== 'file'"
         #inputElement
         [type]="type"
         [placeholder]="placeholder"
@@ -16,5 +17,15 @@
         (blur)="onTouched()"
         [name]="name"
         />
+        <input 
+        *ngIf="type === 'file'"
+        #fileInput
+        type="file"
+        [disabled]="disabled"
+        class="input-field file-input"
+        (change)="onFileChange($event)"
+        (blur)="onTouched()"
+        [name]="name"
+    />
     </div>
 </div>

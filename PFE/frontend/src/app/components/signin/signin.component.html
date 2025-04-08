@@ -1,4 +1,4 @@
-<div class="login">
+<div class="signin">
     <div class="hader">
     </div>
     <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
@@ -16,7 +16,11 @@
             [(ngModel)]="password"
             name="password"
         />
-        <button type="submit" >Sousou</button>
+        <button class="signin" type="submit" >
+            <span class="signin-content">Sign In </span>
+        </button>
+        <img src="http://localhost:5230/api/FileUpload/cejs03mc.yxi.png" alt="">
     </form>
+    
   </div>
   

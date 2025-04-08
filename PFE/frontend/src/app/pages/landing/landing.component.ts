@@ -4,6 +4,7 @@ import { ModalComponent } from "../../components/ui/modal/modal.component";
 import { SplineViewerComponent } from '../../components/ui/spline-viewer/spline-viewer.component';
 import { SignupComponent } from '../../components/signup/signup.component';
 import { SigninComponent } from "../../components/signin/signin.component";
+import { OtpComponent } from "../../components/ui/otp/otp.component";
 
 @Component({
   selector: 'app-landing',

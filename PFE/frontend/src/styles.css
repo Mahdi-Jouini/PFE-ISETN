@@ -1,30 +1,86 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 :root {
-    --background-color: #ffffff;
-    ---input-background-color: #9ca3af;
-    --text-color: #333333;
-    --primary-color: #3f51b5;
-    /* other light theme variables */
+  --background-primary: #ffffff;
+  --background-secondary: #f5f7fa;
+  --background-tertiary: #edf0f5;
+  
+  /* Text Colors */
+  --text-primary: #202226;
+  --text-secondary: #4a5568;
+  --text-tertiary: #718096;
+  --text-disabled: #a0aec0;
+  
+  /* UI Element Colors */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f7fafc;
+  --surface-tertiary: #edf2f7;
+
+  /* Input Fields */
+  --input-background: #f0f2f5;
+  --input-border: #cbd5e0;
+  --input-focus-border: #3f51b5;
+
+  /* Interactive Elements */
+  --primary-color: #3f51b5;
+  --primary-hover: #303f9f;
+  --primary-active: #283593;
+  
+  /* Secondary Action */
+  --secondary-color: #7986cb;
+  --secondary-hover: #5c6bc0;
+  --secondary-active: #3f51b5;
+
   } 
   .dark-theme {
-    --background-color: #121212;
-    ---input-background-color: #404040;
-    --text-color: #ffffff;
-    --primary-color: #7986cb;
-    /* other dark theme variables */
+/* Base Colors */
+  --background-primary: #202225;
+  --background-secondary: #2d3033;
+  --background-tertiary: #36393f;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b9bbbe;
+  --text-tertiary: #8e9297;
+  --text-disabled: #686c72;
+  
+  /* UI Element Colors */
+  --surface-primary: #2f3136;
+  --surface-secondary: #36393f;
+  --surface-tertiary: #40444b;
+  
+  /* Input Fields */
+  --input-background: #40444b;
+  --input-border: #4f545c;
+  --input-focus-border: #7986cb;
+  
+  /* Interactive Elements */
+  --primary-color: #7986cb;
+  --primary-hover: #8c97db;
+  --primary-active: #9fa8da;
+  
+  /* Secondary Action */
+  --secondary-color: #5c6bc0;
+  --secondary-hover: #7986cb;
+  --secondary-active: #9fa8da;
   }
   body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--background-primary);
+    color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     display: block;
     margin: 0;
     padding: 0;    
   }
-  .icon-button{
-    aspect-ratio: 1;
-    border-radius: 50%;
-    border: none;
-    color: var(--text-color);
-    background-color: var(--background-color);
+
+  p{
+    color: var(--text-secondary);
+    font-size: medium;
   }
+
+  h3{
+    color: var(--text-primary);
+    font-size: large;
+  }
+
+
+

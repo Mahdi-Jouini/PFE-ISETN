@@ -14,7 +14,7 @@ namespace API.Services
             _configuration = configuration;
         }
 
-        public string GenerateToken(string userId, string username, List<string> roles = null)
+        public string GenerateToken(string userId, string username, bool isAdmin)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -22,17 +22,11 @@ namespace API.Services
             var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, userId),
-            new Claim(ClaimTypes.Name, username)
+            new Claim(ClaimTypes.Name, username),
+            new Claim(ClaimTypes.Role, isAdmin.ToString())
+
         };
 
-            // Add roles if any
-            if (roles != null)
-            {
-                foreach (var role in roles)
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, role));
-                }
-            }
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],

@@ -1,9 +1,10 @@
 <div class="modal-backdrop" *ngIf="isOpen" (click)="closeOnOverlay($event)" >
     <div class="modal-container" (click)="$event.stopPropagation()">
         <div class="modal_header">
-            <button class="icon-button"  (click)="close()" >
-                <i class="bi bi-x"></i>
+            <button mat-icon-button (click)="close()">
+                <mat-icon>close</mat-icon>
             </button>
+            
         </div>
         <div class="modal-body">
             <ng-content></ng-content>

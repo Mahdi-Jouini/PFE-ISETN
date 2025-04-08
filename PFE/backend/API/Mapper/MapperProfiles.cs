@@ -8,9 +8,9 @@ namespace API.Mapper
     {
         public MapperProfiles()
         {
-            CreateMap<UtilisateurDTO, Utilisateur>()
+            CreateMap<UserDTO, User>()
                 .ForMember(dest => dest.IsApproved, opt => opt.MapFrom(_ => false));
-            CreateMap<Utilisateur, UtilisateurDTO>();
+            CreateMap<User, UserDTO>();
 
         }
     }

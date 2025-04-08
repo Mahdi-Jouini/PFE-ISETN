@@ -1,7 +1,9 @@
   .input-label-container{
     width: 100%;
-    height: 80px;
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
     
   }
   .input-container {
@@ -13,22 +15,22 @@
   .input-field {
     box-sizing: border-box;
     display: flex;
-    height: 40px;
+    height: 45px;
     width: 100%;
     border-radius: 0.375rem;
     border: 2px solid transparent;
     border: none;
-    background-color: var(---input-background-color);
+    background-color: var(--input-background);
     padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
-    color: #000;
+    color: var(--text-primary);
     transition: all 0.4s ease;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   }
 
   .input-field:focus {
     outline: none;
-    border: 2px solid #9ca3af;
+    border: 2px solid var(--input-border);
   }
 
   .input-field:disabled {
@@ -43,11 +45,35 @@
   }
 
   .input-field::placeholder {
-    color: #9ca3af;
+    color: var(--text-secondary)
   }
+
+  input[type=file]{
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0 0 0;
+    color: #00000000;
+    height: 80px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="%23e3e3e3"><path d="M480-480ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280q17 0 28.5 11.5T520-800q0 17-11.5 28.5T480-760H200v560h560v-240q0-17 11.5-28.5T800-480q17 0 28.5 11.5T840-440v240q0 33-23.5 56.5T760-120H200Zm520-607-36 35q-11 11-27.5 11.5T628-692q-11-11-11-28t11-28l104-104q6-6 13-9t15-3q8 0 15 3t13 9l104 104q11 11 11.5 27.5T892-692q-11 11-28 11t-28-11l-36-35v127q0 17-11.5 28.5T760-560q-17 0-28.5-11.5T720-600v-127ZM280-280h400q12 0 18-11t-2-21L586-459q-6-8-16-8t-16 8L450-320l-74-99q-6-8-16-8t-16 8l-80 107q-8 10-2 21t18 11Z"/></svg>') 
+      center 
+      center 
+      no-repeat 
+      var(--input-background);
+    border-radius: 0.375rem;
+    background-size: 30px 30px;
+  }
+  input[type="file"]::file-selector-button {
+    display: none;
+  }
+  
   .input-label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--text-primary);
     line-height: 1;
   }

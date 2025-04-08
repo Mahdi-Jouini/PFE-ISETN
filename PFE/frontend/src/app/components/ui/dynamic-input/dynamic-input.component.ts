@@ -40,6 +40,9 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
   @ViewChild('inputElement', { static: true }) 
   inputElement!: ElementRef<HTMLInputElement>;
 
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+  file: File | null = null;
+
   value: string = '';
   disabled = false;
   
@@ -90,20 +93,31 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
         )`
       : '';
   }
+  // Add this new method specifically for file inputs
+  onFileChange(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    if (file) {
+      this.file = file;
+      this.value = file.name;
+      this.onChange(file);
+    }
+  }
 
-  // Handle input change
+  // Keep the regular onInputChange method for non-file inputs
   onInputChange(event: any) {
     console.log(event);
     const value = event;
     this.value = value;
     this.onChange(value);
-    
-    
   }
-
-  // ControlValueAccessor implementation
+  
   writeValue(value: any): void {
-    this.value = value || '';
+    if (this.type === 'file' && value instanceof File) {
+      this.file = value;
+      this.value = value?.name || '';
+    } else {
+      this.value = value || '';
+    }
   }
 
   registerOnChange(fn: any): void {

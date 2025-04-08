@@ -1,4 +1,13 @@
-<div>
+<div class="nav-bar">
+<button (click)="logOut()" >Log out</button>
+<div class="user">
+  <img class="profile-img" src={{FileURL}} alt="">
+  <div class="user-info">
+    <p>{{UserName}}</p>
+    <p>{{UserEmail}}</p>
+  </div>
+</div>
+
 <label
   for="themeToggle"
   class="themeToggle st-sunMoonThemeToggleBtn"

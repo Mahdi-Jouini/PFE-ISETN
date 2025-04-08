@@ -32,7 +32,7 @@ builder.Services.AddMediatR(cfg =>
 });
 
 builder.Services
-    .RegisterGenericHandlerFor<Utilisateur>();
+    .RegisterGenericHandlerFor<User>();
 
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
@@ -67,6 +67,12 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
+
+
+// Add in-memory caching
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<OtpService>();
+
 builder.Services.AddScoped<API.Services.TokenService>();
 
 // Add controllers and Swagger

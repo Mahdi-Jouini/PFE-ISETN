@@ -15,7 +15,7 @@ namespace Data.Context
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
-        public DbSet<Utilisateur> Utilisateurs { get; set; }
+        public DbSet<User> Utilisateurs { get; set; }
 
     }
 }

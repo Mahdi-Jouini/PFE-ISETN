@@ -1,0 +1,54 @@
+.otp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .otp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .otp-container h3 {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .otp-container p {
+    margin: 0;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .fields {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .otp-field {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  
+  .otp-field:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 480px) {
+    .otp-field {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }

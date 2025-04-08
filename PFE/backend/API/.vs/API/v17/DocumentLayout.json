@@ -3,27 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\services\\mediatrextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:services\\mediatrextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\reomvebyentitygenerichandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\putgenerichandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\getgenericbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\getallgenerichandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\postgenerichandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\deletegenerichandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\commands\\removebyentitygenericcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -35,76 +31,36 @@
       "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\commands\\postgeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\commands\\deletegeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\interface\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\handlers\\deletegenerichandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250406110206_FirstMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250406110206_FirstMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\controllers\\utilisateurcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:controllers\\utilisateurcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\services\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:services\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F90DE7D-67C3-4530-8CCE-11159C6CBB90}|..\\Domain\\Domain.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\domain\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\mapper\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:mapper\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\DTOs\\UtilisateurDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Handlers\\GetGenericByIDHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Models\\Utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Data\\Repository\\Repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Queries\\GetByIdGeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Queries\\GetAllGeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Interface\\IRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Data\\Context\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\migrations\\20250401162513_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:migrations\\20250401162513_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Commands\\PostGeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|c:\\users\\mahdi jouini\\source\\repos\\pfe\\backend\\api\\migrations\\20250406142529_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60DB0E45-D306-470C-B52F-58CD413EA5DC}|API.csproj|solutionrelative:migrations\\20250406142529_firstmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -114,128 +70,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReomveByEntityGenericHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "RelativeToolTip": "..\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T13:00:49.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "PutGenericHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\PutGenericHandler.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\PutGenericHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\PutGenericHandler.cs",
-              "RelativeToolTip": "..\\Domain\\Handlers\\PutGenericHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "Services\\TokenService.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\TokenService.cs",
+              "RelativeToolTip": "Services\\TokenService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAQwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:58:53.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T12:26:44.598Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GetAllGenericHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\GetAllGenericHandler.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\GetAllGenericHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\GetAllGenericHandler.cs",
-              "RelativeToolTip": "..\\Domain\\Handlers\\GetAllGenericHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAQwBkAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "20250406142529_FirstMigration.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250406142529_FirstMigration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250406142529_FirstMigration.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250406142529_FirstMigration.cs",
+              "RelativeToolTip": "Migrations\\20250406142529_FirstMigration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:43:52.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T14:25:29.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Interface\\IRepository.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Interface\\IRepository.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Interface\\IRepository.cs",
+              "RelativeToolTip": "..\\Domain\\Interface\\IRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAMwBcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T14:14:47.943Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GetGenericByIDHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "RelativeToolTip": "..\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "DeleteGenericHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\DeleteGenericHandler.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\DeleteGenericHandler.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\DeleteGenericHandler.cs",
+              "RelativeToolTip": "..\\Domain\\Handlers\\DeleteGenericHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:44:31.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T14:14:01.165Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MediatRExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\MediatRExtensions.cs",
-              "RelativeDocumentMoniker": "Services\\MediatRExtensions.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\MediatRExtensions.cs",
-              "RelativeToolTip": "Services\\MediatRExtensions.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwBYAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwD8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:36:15.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T16:13:54.358Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAUwCIAAAAuAAAAAAAAAA==",
+              "Title": "FileController.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\FileController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FileController.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\FileController.cs",
+              "RelativeToolTip": "Controllers\\FileController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:18:41.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T06:27:00.866Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PostGenericHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\PostGenericHandler.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\PostGenericHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\PostGenericHandler.cs",
-              "RelativeToolTip": "..\\Domain\\Handlers\\PostGenericHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAswFYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:58:50.15Z",
+              "WhenOpened": "2025-04-02T15:33:04.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "RemoveByEntityGenericCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
-              "RelativeToolTip": "..\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:53:54.071Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PutGeneric.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\PutGeneric.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Commands\\PutGeneric.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\PutGeneric.cs",
-              "RelativeToolTip": "..\\Domain\\Commands\\PutGeneric.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:53:51.722Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "PostGeneric.cs",
               "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\PostGeneric.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Commands\\PostGeneric.cs",
@@ -243,264 +167,115 @@
               "RelativeToolTip": "..\\Domain\\Commands\\PostGeneric.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:53:49.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T14:18:05.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PutGeneric.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\PutGeneric.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Commands\\PutGeneric.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\PutGeneric.cs",
+              "RelativeToolTip": "..\\Domain\\Commands\\PutGeneric.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T14:18:06.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RemoveByEntityGenericCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
+              "RelativeToolTip": "..\\Domain\\Commands\\RemoveByEntityGenericCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T14:18:23.792Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "DeleteGeneric.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\DeleteGeneric.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Commands\\DeleteGeneric.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Commands\\DeleteGeneric.cs",
-              "RelativeToolTip": "..\\Domain\\Commands\\DeleteGeneric.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Title": "20250406110206_FirstMigration.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250406110206_FirstMigration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250406110206_FirstMigration.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250406110206_FirstMigration.cs",
+              "RelativeToolTip": "Migrations\\20250406110206_FirstMigration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:53:40.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DeleteGenericHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\DeleteGenericHandler.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Handlers\\DeleteGenericHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Handlers\\DeleteGenericHandler.cs",
-              "RelativeToolTip": "..\\Domain\\Handlers\\DeleteGenericHandler.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA3wB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T12:55:35.958Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UtilisateurController.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\UtilisateurController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UtilisateurController.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Controllers\\UtilisateurController.cs",
-              "RelativeToolTip": "Controllers\\UtilisateurController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:08:51.99Z"
+              "WhenOpened": "2025-04-06T11:02:06.384Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "Services\\TokenService.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\TokenService.cs",
-              "RelativeToolTip": "Services\\TokenService.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwAsAAAA5AAAAAAAAAA==",
+              "Title": "OtpService.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\OtpService.cs",
+              "RelativeDocumentMoniker": "Services\\OtpService.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\OtpService.cs",
+              "RelativeToolTip": "Services\\OtpService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T20:46:33.795Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T10:38:28.115Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 13,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\DTOs\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\DTOs\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\DTOs\\LoginRequest.cs",
+              "RelativeToolTip": "..\\Domain\\DTOs\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T05:49:52.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T16:14:35.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\DTOs\\UserDTO.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\DTOs\\UserDTO.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\DTOs\\UserDTO.cs",
+              "RelativeToolTip": "..\\Domain\\DTOs\\UserDTO.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T16:12:51.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "MapperProfiles.cs",
               "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Mapper\\MapperProfiles.cs",
               "RelativeDocumentMoniker": "Mapper\\MapperProfiles.cs",
               "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Mapper\\MapperProfiles.cs",
               "RelativeToolTip": "Mapper\\MapperProfiles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:12:58.629Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ReomveByEntityGenericHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Handlers\\ReomveByEntityGenericHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T16:30:12.986Z"
+              "WhenOpened": "2025-04-04T16:14:23.737Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "GetGenericByIDHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Handlers\\GetGenericByIDHandler.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAABsAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Models\\User.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\Domain\\Models\\User.cs",
+              "RelativeToolTip": "..\\Domain\\Models\\User.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABEAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T22:15:55.823Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "API.csproj",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\API.csproj",
-              "RelativeDocumentMoniker": "API.csproj",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\API.csproj",
-              "RelativeToolTip": "API.csproj",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-01T18:44:19.425Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MailService.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\MailService.cs",
-              "RelativeDocumentMoniker": "Services\\MailService.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Services\\MailService.cs",
-              "RelativeToolTip": "Services\\MailService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T18:44:58.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UtilisateurDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\DTOs\\UtilisateurDTO.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\DTOs\\UtilisateurDTO.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\DTOs\\UtilisateurDTO.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\DTOs\\UtilisateurDTO.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAiwBUAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:13:10.781Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Utilisateur.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Models\\Utilisateur.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Models\\Utilisateur.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Models\\Utilisateur.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Models\\Utilisateur.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAkwBIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T16:25:04.247Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Data\\Repository\\Repository.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Data\\Repository\\Repository.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Data\\Repository\\Repository.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Data\\Repository\\Repository.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:16:40.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "GetByIdGeneric.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Queries\\GetByIdGeneric.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Queries\\GetByIdGeneric.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Queries\\GetByIdGeneric.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Queries\\GetByIdGeneric.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T22:16:59.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-01T15:50:09.161Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "GetAllGeneric.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Queries\\GetAllGeneric.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Queries\\GetAllGeneric.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Queries\\GetAllGeneric.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Queries\\GetAllGeneric.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T18:27:57.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Interface\\IRepository.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Interface\\IRepository.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Interface\\IRepository.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Interface\\IRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T16:38:03.635Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "API.http",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\API.http",
-              "RelativeDocumentMoniker": "API.http",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\API.http",
-              "RelativeToolTip": "API.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-04-01T15:55:48.288Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Data\\Context\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Data\\Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Data\\Context\\AppDbContext.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Data\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:16:51.14Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "20250401162513_FirstMigration.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250401162513_FirstMigration.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250401162513_FirstMigration.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Migrations\\20250401162513_FirstMigration.cs",
-              "RelativeToolTip": "Migrations\\20250401162513_FirstMigration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T16:25:14.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\PFE\\backend\\API\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAowCkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-01T15:56:00.61Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "PostGeneric.cs",
-              "DocumentMoniker": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Commands\\PostGeneric.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Library\\Domain\\Commands\\PostGeneric.cs",
-              "ToolTip": "C:\\Users\\Mahdi Jouini\\source\\repos\\Library\\Domain\\Commands\\PostGeneric.cs",
-              "RelativeToolTip": "..\\..\\..\\Library\\Domain\\Commands\\PostGeneric.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T23:16:36.579Z"
+              "WhenOpened": "2025-04-04T16:12:28.625Z"
             }
           ]
         }

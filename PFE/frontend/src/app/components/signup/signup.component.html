@@ -1,48 +1,87 @@
-<div class="login">
-  <div class="hader">
-  </div>
+<div class="stepper">
   <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
-  <div class="form-row">
-      <div class="form-col">
+    <div class="signup-form">
+      <div class="step" [ngClass]="{'active': currentStep === 0}">
+        <div class="form-row">
+          <div class="form-col">
+            <CustomInput
+              label="First name"
+              type="text"
+              placeholder="Enter your first name"
+              [(ngModel)]="firstName"
+              name="firstName"
+            />
+          </div>
+          <div class="form-col">
+            <CustomInput
+              label="Last name"
+              type="text"
+              placeholder="Enter your Last name"
+              [(ngModel)]="lastName"
+              name="lastName"
+            />
+          </div>
+        </div>
         <CustomInput
-          label="First name"
+          label="Email Address"
           type="text"
-          placeholder="Enter your first name"
-          [(ngModel)]="firstName"
-          name="firstName"
-      />
-      </div>
-      <div class="form-col">
+          placeholder="Enter your email address"
+          [(ngModel)]="emailAddress"
+          name="emailAddress"
+        />
+        <CustomInput 
+          label="Profile Image" 
+          type="file" 
+          name="profileImage"
+          [ngModel]="profileImage"
+          (ngModelChange)="onFileChange($event)">
+        </CustomInput>
         <CustomInput
-          label="Last name"
-          type="text"
-          placeholder="Enter your Last name"
-          [(ngModel)]="lastName"
-          name="lastName"
-      />
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          [(ngModel)]="password"
+          name="password"
+        />
+        <CustomInput
+          label="Confirm Password"
+          type="password"
+          placeholder="Confirm your password"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+        />
+        <button type="button" class="next-button" (click)="nextStep()">
+          Next Step
+          <div class="arrow-wrapper">
+            <div class="arrow"></div>
+          </div>
+        </button>
       </div>
-  </div>
-  <CustomInput
-  label="Email Address"
-  type="text"
-  placeholder="Enter your name"
-  [(ngModel)]="emailAddress"
-  name="emailAddress"
-  />
-  <CustomInput
-  label="Password"
-  type="text"
-  placeholder="Enter your name"
-  [(ngModel)]="password"
-  name="password"
-  />
-  <CustomInput
-  label="Confirm Password"
-  type="text"
-  placeholder="Enter your name"
-  [(ngModel)]="confirmPassword"
-  name="confirmPassword"
-  />
-  <button type="submit" >Sousou</button>
+      
+      <div class="step" [ngClass]="{'active': currentStep === 1}">
+        <app-otp 
+        [otpLength]="5" 
+        [allowAlphanumeric]="true"
+        [title]="'Verify Account'" 
+        [subtitle]="'Enter the verification code sent to ' + emailAddress"
+        (otpComplete)="onOtpComplete($event)"
+        (otpChange)="onOtpChange($event)">
+      </app-otp>
+        <div class="buttons-row">
+          <button type="button" (click)="previousStep()">
+            <div class="arrow-wrapper reverse">
+              <div class="arrow"></div>
+            </div>
+            Back
+          </button>
+          <button type="submit">
+            Sign up
+            <div class="arrow-wrapper">
+              <div class="arrow"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
   </form>
 </div>

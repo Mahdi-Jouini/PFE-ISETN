@@ -4,23 +4,21 @@
     position: absolute;
     inset: 0;
     z-index: 10;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .modal-container{
-    background-color: var(--background-color);
-    border: 4px solid ;
+    background-color: var(--background-secondary);
     padding: 20px;
     border-radius: 10px;
 }
 .modal_header{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 .close-modal{
     margin-left: auto;
-    background-color: aqua;
 }
