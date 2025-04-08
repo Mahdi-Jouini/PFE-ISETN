@@ -66,7 +66,7 @@ namespace API.Controllers
                 return BadRequest("Email Address is required");
             }
             var otp = _otpService.GenerateAndStoreOtp(emailAddress);
-            var result = MailService.MailSender(emailAddress, "nesssi wa7bebi", otp);
+            var result = MailService.MailSender(emailAddress, "nesssi wa7bebi!!", otp);
             return Ok(new { Message = result });
         }
 
