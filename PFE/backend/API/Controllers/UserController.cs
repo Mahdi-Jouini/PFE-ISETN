@@ -30,42 +30,53 @@ namespace API.Controllers
             _tokenService = tokenService;
         }
 
-        [HttpGet("getAllUtilisateurs")]
+        [HttpGet("getAllUsers")]
         public async Task<IEnumerable<UserDTO>> Gets()
         {
-            var utilisateurs = await _mediator.Send(new GetAllGeneric<Domain.Models.User>());
-            return utilisateurs.Select(l => _mapper.Map<UserDTO>(l));
+            var users = await _mediator.Send(new GetAllGeneric<Domain.Models.User>());
+            return users.Select(l => _mapper.Map<UserDTO>(l));
         }
 
-        [HttpGet("getUtilisateurById")]
-        public async Task<ActionResult<UserDTO>> GetUtilisateur(string? id)
+        [HttpGet("getUserById")]
+        public async Task<ActionResult<UserDTO>> GetUser(string? id)
         {
-            var utilisateur = await _mediator.Send(new GetByIDGeneric<User>(c => c.Id.Equals(id)));
+            var user = await _mediator.Send(new GetByIDGeneric<User>(c => c.UserId.Equals(id)));
 
-            if (utilisateur == null)
-                return NotFound("Utilisateur not found");
+            if (user == null)
+                return NotFound("User not found");
 
-            return Ok(_mapper.Map<UserDTO>(utilisateur));
+            return Ok(_mapper.Map<UserDTO>(user));
         }
 
-        [HttpPost("PostUtilisateur")]
-        public async Task<IActionResult> RegisterUser([FromBody] UserDTO utilisateurDTO)
+        [HttpGet("getUserByEmail")]
+        public async Task<ActionResult<UserDTO>> GetUserByEmail(string? email)
         {
-            var utilisateur = _mapper.Map<User>(utilisateurDTO);
-            var result = await _mediator.Send(new PostGeneric<User>(utilisateur));
+            var user = await _mediator.Send(new GetByIDGeneric<User>(c => c.EmailAddress.Equals(email)));
+
+            if (user == null)
+                return NotFound("User not found");
+
+            return Ok(_mapper.Map<UserDTO>(user));
+        }
+
+        [HttpPost("PostUser")]
+        public async Task<IActionResult> RegisterUser([FromBody] UserDTO userDTO)
+        {
+            var user = _mapper.Map<User>(userDTO);
+            var result = await _mediator.Send(new PostGeneric<User>(user));
             return Ok(new { Message = result });
         }
 
-        [HttpPut("PutUtilisateur")]
-        public async Task<string> PutUtilisateur(User  utilisateur)
+        [HttpPut("PutUser")]
+        public async Task<string> PutUser(User  user)
         {
 
-            return await _mediator.Send(new PutGeneric<User>( utilisateur));
+            return await _mediator.Send(new PutGeneric<User>( user));
         }
 
 
-        [HttpDelete("DeleteUtilisateur")]
-        public async Task<string> DeleteUtilisateur(Guid id)
+        [HttpDelete("DeleteUser")]
+        public async Task<string> DeleteUser(string id)
         {
             return await _mediator.Send(new DeleteGeneric<User>(id));
         }

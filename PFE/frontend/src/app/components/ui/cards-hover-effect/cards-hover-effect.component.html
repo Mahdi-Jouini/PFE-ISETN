@@ -1,0 +1,32 @@
+<div class="hover-effect-grid" [ngClass]="className">
+    <div class="hover-background" [@enterAnimation] *ngIf="hovered" [ngStyle]="hoverStyles" ></div>
+    <div 
+      
+      *ngFor="let item of items; let idx = index" 
+      class="item-link"
+      (mouseenter)="hover(idx)"
+      (mouseleave)="unhover()"
+    >
+      <div 
+      #Card 
+      class="card"
+      (click)="navigate('project/' + item.projectId )"
+      >
+        <div class="card-content">
+          <div class="card-info">
+            <img class="avatar" [src]="avatarUrl(item.productOwner.avatar)" alt="">
+            <div class="user-info">
+                <p class="user-name">{{item.productOwner.firstName}} {{item.productOwner.lastName}}</p>
+                <p class="created-at">{{item.createdDate}}</p>  
+            </div>
+          </div>
+          <div class="card-inner">
+            <h4 class="card-title">{{ item.title }}</h4>
+            <p class="card-description">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

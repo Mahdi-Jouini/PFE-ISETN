@@ -1,0 +1,70 @@
+
+<div class="product-backlog-container">
+  <div class="sprint-list">
+    <div class="hover-background" [@enterAnimation] *ngIf="hovered" [ngStyle]="hoverStyles"></div>
+    <div class="sprint-container" *ngFor="let sprint of sprints; let sprintIdx = index">
+      <div class="sprint-info">
+        <button class="collapse-btn" (click)="collapse(sprintIdx)">
+          <i *ngIf="isCollapsed(sprintIdx)" class="bi bi-chevron-up"></i>
+          <i *ngIf="!isCollapsed(sprintIdx)" class="bi bi-chevron-down"></i>
+        </button>
+        <h4 class="sprint-number">{{ sprint.sprintNumber }}</h4>
+        <p class="creation-date">Created on: {{ sprint.creationDate }}</p>
+        <p class="issues-number">Issues: {{ sprint.issuesNumber }}</p>
+        <div class="sprint-state" [ngClass]="'state-' + sprint.state.toLowerCase().replace(' ', '-')">
+          {{ sprint.state }}
+        </div>
+        <app-icon-button
+          icon="bi bi-three-dots-vertical"
+        />
+      </div>
+      <div 
+        class="issues-list-container"
+        [@collapseAnimation]="isCollapsed(sprintIdx) ? 'expanded' : 'collapsed'"
+      >
+        <div class="issues-actions">
+          <app-icon-button
+            icon="bi bi-plus"
+            label="Create Issue"
+          />
+          <app-icon-button
+            icon="bi bi-funnel-fill"
+          />
+        </div>
+  
+        <div class="issues-list">
+          <div
+            *ngFor="let issue of sprint.issues; let issueIdx = index"
+            style="padding: 5px;"
+            (mouseenter)="hover(sprintIdx, issueIdx)"
+            (mouseleave)="unhover()"
+          >
+            <div #Issue class="issue">
+              <div class="issue-icon" [ngClass]="'issue-type-' + issue.type.toLowerCase()">
+                {{ getIssueIcon(issue.type) }}
+              </div>
+              <div class="issue-type-label">{{ issue.type }}</div>
+              <h4 class="issue-name">{{ issue.name }}</h4>
+              <div class="issue-state" [ngClass]="'state-' + issue.state.toLowerCase().replace(' ', '-')">
+                {{ issue.state }}
+              </div>
+              <div class="issue-priority" [ngClass]="'priority-' + issue.priority.toLowerCase()">
+                {{ issue.priority }}
+              </div>
+              <div class="assigned-to">
+                <span class="label">Assigned:</span> 
+                <span class="value">{{ issue.assignedTo }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="action-box">
+    <div>
+        
+    </div>
+  </div>
+</div>
+

@@ -10,6 +10,8 @@
               placeholder="Enter your first name"
               [(ngModel)]="firstName"
               name="firstName"
+              [validate]="true"
+              validationType="name"
             />
           </div>
           <div class="form-col">
@@ -19,6 +21,8 @@
               placeholder="Enter your Last name"
               [(ngModel)]="lastName"
               name="lastName"
+              [validate]="true"
+              validationType="name"
             />
           </div>
         </div>
@@ -28,6 +32,8 @@
           placeholder="Enter your email address"
           [(ngModel)]="emailAddress"
           name="emailAddress"
+          [validate]="true"
+          validationType="email"
         />
         <CustomInput 
           label="Profile Image" 
@@ -41,7 +47,8 @@
           type="password"
           placeholder="Enter your password"
           [(ngModel)]="password"
-          name="password"
+          [validate]="true"
+          validationType="password"
         />
         <CustomInput
           label="Confirm Password"
@@ -67,19 +74,17 @@
         (otpComplete)="onOtpComplete($event)"
         (otpChange)="onOtpChange($event)">
       </app-otp>
-        <div class="buttons-row">
-          <button type="button" (click)="previousStep()">
-            <div class="arrow-wrapper reverse">
-              <div class="arrow"></div>
-            </div>
-            Back
-          </button>
+        <div class="buttons-group">
+          
           <button type="submit">
             Sign up
             <div class="arrow-wrapper">
               <div class="arrow"></div>
             </div>
+            
           </button>
+          
+          <a (click)="previousStep()"> Back </a>
         </div>
       </div>
     </div>

@@ -56,6 +56,11 @@ export class APIService {
       headers: this.getHeaders()
     });
   }
+  GET_All(root: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}${root}`, {
+      headers: this.getHeaders()
+    });
+  }
   
   PUT(root: string, id: string, data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}${root}/${id}`, data, {

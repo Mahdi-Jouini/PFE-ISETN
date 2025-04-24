@@ -8,12 +8,20 @@ namespace API.Mapper
     {
         public MapperProfiles()
         {
-            CreateMap<UserDTO, User>()
-                .ForMember(dest => dest.IsApproved, opt => opt.MapFrom(_ => false));
+            // User mappings
+            CreateMap<UserDTO, User>();
             CreateMap<User, UserDTO>();
 
+            // Project mappings
+            CreateMap<ProjectDTO, Project>();
+            CreateMap<Project, ProjectDTO>();
+
+            // Member mappings
+            CreateMap<MemberDTO, Member>();
+            CreateMap<Member, MemberDTO>()
+                .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User));
         }
-    }
+}
 
 
 }

@@ -21,7 +21,7 @@ namespace Domain.Interface
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>>? condition = null,
             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? includes = null);
 
-        string RemouveById(Guid id);
+        string RemouveById(string id);
         string Remove(TEntity entity);
         string RemoveRange(IEnumerable<TEntity> entites);
 

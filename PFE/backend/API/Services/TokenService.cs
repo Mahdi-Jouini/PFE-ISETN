@@ -14,7 +14,7 @@ namespace API.Services
             _configuration = configuration;
         }
 
-        public string GenerateToken(string userId, string username, bool isAdmin)
+        public string GenerateToken(string userId, string username)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -23,7 +23,6 @@ namespace API.Services
         {
             new Claim(ClaimTypes.NameIdentifier, userId),
             new Claim(ClaimTypes.Name, username),
-            new Claim(ClaimTypes.Role, isAdmin.ToString())
 
         };
 

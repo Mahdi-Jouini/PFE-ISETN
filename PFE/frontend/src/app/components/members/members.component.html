@@ -1,0 +1,50 @@
+<div class="members">
+    @for (role of roles; let i = $index; track $index) {
+    <div class="role-group">
+      <div class="role">
+        <h3>{{roles[i]}}</h3>
+        <app-icon-button
+        style="margin-left: auto;"
+        icon="bi bi-plus"
+        (click)="openModal(); getRole(i.toString())"
+        />
+      </div>
+      <div class="member-group">
+        @if (groupedMembers[i] && groupedMembers[i].length) {
+          @for (member of groupedMembers[i]; track member.memberId) {
+              
+              <app-user-banner [user]= member.user />
+          }
+        } @else {
+          <div class="empty-role">
+            <p>No members</p>
+          </div>
+        }
+      </div>
+    </div>
+    }
+
+    <app-modal
+        [isOpen]="isModalOpen" 
+        title="Confirm Action"
+        (closeModal)="onModalClose()"
+    >
+
+      <div class="find-user">
+      <CustomInput
+        type="email"
+        placeholder="email@exemple.com"
+        [(ngModel)]="emailAddress"
+        name="emailAddress"
+        [validate]="true"
+        validationType="email"
+      />
+      </div>
+      <app-user-banner
+      *ngIf="user"
+      [user]= user
+      (click) = 'addMember(Role)'
+      />
+      <button (click)="findUser()">Add Member</button>
+    </app-modal>
+  </div>

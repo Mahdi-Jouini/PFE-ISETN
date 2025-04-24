@@ -1,0 +1,46 @@
+/* nav-bar-item.component.scss */
+.nav-item-container {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--background-primary);
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.dropdown-toggle {
+  margin-left: 8px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 100%;
+  min-width: 200px;
+  background-color: var(--background-tertiary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  z-index: 100;
+  border-radius: 4px;
+  transition: all 1s ease-in-out
+}
+
+i {
+    transition: all 0.3s ease;
+}
+  

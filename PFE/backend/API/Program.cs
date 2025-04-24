@@ -32,7 +32,10 @@ builder.Services.AddMediatR(cfg =>
 });
 
 builder.Services
-    .RegisterGenericHandlerFor<User>();
+    .RegisterGenericHandlerFor<User>()
+    .RegisterGenericHandlerFor<Project>()
+    .RegisterGenericHandlerFor<Member>();
+
 
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MapperProfiles));

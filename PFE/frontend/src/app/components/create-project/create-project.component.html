@@ -1,0 +1,17 @@
+<form action="">
+    <CustomInput
+    label="Project Title"
+    type="text"
+    placeholder="Enter a project title"
+    [(ngModel)]="project_title"
+    name="project_title"
+    />
+    <CustomInput
+    label="Project Title"
+    type="textarea"
+    placeholder="Enter a project title"
+    [(ngModel)]="project_description"
+    name="project_description"
+    />
+    <app-file-upload/>
+</form>

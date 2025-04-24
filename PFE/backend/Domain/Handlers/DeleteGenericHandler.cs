@@ -26,7 +26,7 @@ namespace Domain.Handler
 
         //public Task<string> Handle(DeleteGeneric<TEntity> request, CancellationToken cancellationToken)
         //{
-        //    var result = repositories.Update(request.Obj);
+        //    var result = repositories.Update(request.Obj);a
         //    return Task.FromResult(result);
         //}
 

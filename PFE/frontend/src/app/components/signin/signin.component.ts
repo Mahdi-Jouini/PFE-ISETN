@@ -30,7 +30,10 @@ export class SigninComponent {
       Password: this.password,
     };
     this.apiService.AUTH("/Auth/signIn", formData).subscribe({
-      next: (response) => console.log('Sign in successful', response),
+      next: (response) => {
+        console.log('Sign in successful', response);
+        window.location.reload();
+      },
       error: (error) => console.error('Sign in failed', error.error.errors)
     })
   }

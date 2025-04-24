@@ -149,7 +149,7 @@ namespace GestionUtilisateur.Data.Repository
             await Context.SaveChangesAsync();
         }
 
-        public string RemouveById(Guid id)
+        public string RemouveById(string id)
         {
             TEntity entitie = Context.Set<TEntity>().Find(id);
             Context.Set<TEntity>().Remove(entitie);

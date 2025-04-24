@@ -59,8 +59,5 @@ namespace API.Controllers
             var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             return File(fileStream, contentType, Path.GetFileName(filePath));
         }
-
-
     }
-
 }

@@ -2,3 +2,20 @@
     width: 500px;
     min-width: 300px;
 }
+button{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px ;
+    background-color: var(--background-primary);
+    border-bottom: solid outset;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: radial-gradient(circle, var(--primary-color) 10%, #ffffff00 80%);
+    border-top: 0;
+    transition: 0.15s ease-in-out;
+    color: var(--primary-text);
+}
+button:hover{
+    border-image-source: radial-gradient(circle, var(--primary-color) 0%, #ffffff00 100%);
+}
+

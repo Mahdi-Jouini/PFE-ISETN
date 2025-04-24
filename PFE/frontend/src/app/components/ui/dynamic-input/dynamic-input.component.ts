@@ -1,3 +1,4 @@
+// dynamic-input.component.ts
 import { 
   Component, 
   Input as AngularInput, 
@@ -5,7 +6,9 @@ import {
   ElementRef, 
   ViewChild, 
   HostListener, 
-  OnInit 
+  OnInit,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 import { 
   ControlValueAccessor, 
@@ -13,7 +16,8 @@ import {
   FormsModule 
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { log } from 'console';
+import { IconButtonComponent } from "../icon-button/icon-button.component";
+import { ValidationService } from '../../../services/validation.service';
 
 @Component({
   selector: 'CustomInput',
@@ -28,11 +32,17 @@ import { log } from 'console';
     }
   ]
 })
-export class DynamicInputComponent implements ControlValueAccessor, OnInit {
+export class DynamicInputComponent implements ControlValueAccessor, OnInit, OnChanges {
   @AngularInput() label: string = '';
   @AngularInput() type: string = 'text';
+  @AngularInput() action: string = '';
   @AngularInput() placeholder: string = '';
   @AngularInput() name: string = '';
+  @AngularInput() error: string = '';
+  @AngularInput() validate: boolean = false;
+  @AngularInput() validationType: 'email' | 'name' | 'password' | 'confirmPassword' | '' = '';
+  @AngularInput() validationOptions: any = {};
+  @AngularInput() compareValue: string = ''; // For password confirmation
 
   @ViewChild('inputContainer', { static: true }) 
   inputContainer!: ElementRef<HTMLDivElement>;
@@ -45,6 +55,8 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
 
   value: string = '';
   disabled = false;
+  validationError: string = '';
+  dirty: boolean = false;
   
   private mouseX = 0;
   private mouseY = 0;
@@ -56,6 +68,8 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
   // ControlValueAccessor methods
   onChange = (_: any) => {};
   onTouched = () => {};
+
+  constructor(private validationService: ValidationService) {}
 
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
@@ -84,6 +98,12 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
     this.updateBackgroundStyle();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if ((changes['validate'] || changes['validationType'] || changes['value'] || changes['compareValue']) && this.dirty) {
+      this.validateInput();
+    }
+  }
+
   private updateBackgroundStyle() {
     this.backgroundStyle = this.visible 
       ? `radial-gradient(
@@ -93,6 +113,7 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
         )`
       : '';
   }
+
   // Add this new method specifically for file inputs
   onFileChange(event: Event) {
     const file = (event.target as HTMLInputElement)?.files?.[0];
@@ -105,10 +126,36 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit {
 
   // Keep the regular onInputChange method for non-file inputs
   onInputChange(event: any) {
-    console.log(event);
     const value = event;
     this.value = value;
     this.onChange(value);
+    this.dirty = true;
+    
+    if (this.validate && this.validationType) {
+      this.validateInput();
+    }
+  }
+  
+  // Method to validate input based on type
+  validateInput() {
+    if (!this.validate || !this.validationType) {
+      this.validationError = '';
+      return;
+    }
+
+    // For password confirmation, add the compareValue to options
+    if (this.validationType === 'confirmPassword') {
+      this.validationOptions = {
+        ...this.validationOptions,
+        password: this.compareValue
+      };
+    }
+
+    this.validationError = this.validationService.validate(
+      this.value, 
+      this.validationType,
+      this.validationOptions
+    );
   }
   
   writeValue(value: any): void {

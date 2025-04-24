@@ -14,10 +14,10 @@ namespace Domain.Commands
         }
         public TEntity Obj { get; }
 
-        public DeleteGeneric(Guid id)
+        public DeleteGeneric(string id)
         {
             Id = id;
         }
-        public Guid Id { get; }
+        public string Id { get; }
     }
 }

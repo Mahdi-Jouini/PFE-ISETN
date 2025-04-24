@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Domain.Models;
 using API.Services;
 using Microsoft.AspNetCore.Identity.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 
@@ -46,14 +45,13 @@ namespace API.Controllers
                 return NotFound("User not found");
             }
 
-            // Assuming you implement proper password hashing
             if (!request.Password.Equals(utilisateur.Password))
             {
                 return Unauthorized("Mot de passe incorrect");
             }
 
 
-            var token = _tokenService.GenerateToken(utilisateur.Id, utilisateur.EmailAddress, utilisateur.IsAdmin);
+            var token = _tokenService.GenerateToken(utilisateur.UserId, utilisateur.EmailAddress);
             return Ok(new { Message = "Connection successful", Token = token });
         }
 
@@ -110,7 +108,7 @@ namespace API.Controllers
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            var utilisateur = await _mediator.Send(new GetByIDGeneric<User>(c => c.Id.Equals(userId)));
+            var utilisateur = await _mediator.Send(new GetByIDGeneric<User>(c => c.UserId.Equals(userId)));
             if (utilisateur == null)
                 return NotFound("User not found");
 

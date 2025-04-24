@@ -1,0 +1,36 @@
+.button-container{
+    border-radius: 0.5rem;
+    padding: 2.5px;
+    transition: all 0.3s ease;
+    
+}
+.button{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    padding: 0 !important;
+    border-radius: 0.375rem;
+    border: 3px solid transparent;
+    background-color: var(--input-background);
+    color: var(--text-primary);
+    transition: all 0.1s ease-in-out;
+    /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);*/
+}
+.button:active {
+    border: 3px solid var(--input-border);
+}
+.button span{
+    text-wrap: nowrap;
+    padding: 0 5px 0 5px;
+}
+.button i{
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    color: var(--text-primary);
+}

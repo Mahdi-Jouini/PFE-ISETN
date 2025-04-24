@@ -1,0 +1,19 @@
+.user-banner{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: var(--background-tertiary);
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+.user-info p{
+    margin: 0;
+}

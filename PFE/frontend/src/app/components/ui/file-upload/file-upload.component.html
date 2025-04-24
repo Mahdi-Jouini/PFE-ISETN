@@ -1,0 +1,50 @@
+<!-- file-upload.component.html -->
+<div class="upload-container">
+    <h2>File Upload</h2>
+    <p>Drag and drop files here or</p>
+    <div>
+        <input
+        class="dragarea"
+        [class]="dragAreaClass"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave($event)"
+        (drop)="onDrop($event)"
+        type="file" 
+        multiple 
+        (change)="onFileChange($event)" 
+        >
+    </div>
+  
+    <div class="file-list" *ngIf="files.length > 0">
+      <h3>Selected Files</h3>
+      
+      <div class="file-item" *ngFor="let fileInfo of files; let i = index">
+        <div class="file-info">
+          <div class="file-icon" [ngClass]="{'image-file': fileInfo.type.includes('image'), 'pdf-file': fileInfo.type.includes('pdf'), 'doc-file': fileInfo.type.includes('document')}">
+            <span *ngIf="fileInfo.type.includes('image')">🖼️</span>
+            <span *ngIf="fileInfo.type.includes('pdf')">📄</span>
+            <span *ngIf="!fileInfo.type.includes('image') && !fileInfo.type.includes('pdf')">📁</span>
+          </div>
+          <div class="file-details">
+            <div class="file-name">{{fileInfo.name}}</div>
+            <div class="file-meta">
+              <span class="file-size">{{fileInfo.size}}</span>
+              <span class="file-type">{{fileInfo.type}}</span>
+            </div>
+            <div class="progress-bar" *ngIf="fileInfo.progress > 0">
+              <div class="progress" [style.width.%]="fileInfo.progress"></div>
+            </div>
+          </div>
+        </div>
+        <div class="file-actions">
+          <button class="remove-btn" (click)="removeFile(i)">✖</button>
+        </div>
+      </div>
+      
+      <div class="upload-actions">
+        <button class="upload-btn" (click)="uploadFiles()" [disabled]="files.length === 0">
+          Upload All Files
+        </button>
+      </div>
+    </div>
+  </div>

@@ -11,17 +11,12 @@ namespace Domain.DTOs
 {
     public class UserDTO
     {
-        [Required]
+        public string UserId { get; set; }
         public string FirstName{ get; set; }
-        [Required]
         public string LastName{ get; set; }
-        [Required]
         public string EmailAddress{ get; set; }
-        public string? Avatar {  get; set; }
-        [Required]
+        public string Avatar {  get; set; }
         public string Password{ get; set; }
-        public bool? IsAdmin { get; set; }
-        [Required]
-        public string otp { get; set; }
+        public string? otp { get; set; }
     }
 }

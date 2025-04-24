@@ -1,31 +1,42 @@
+<!-- dynamic-input.component.html -->
 <div class="input-label-container">
-    <label class="input-label" >{{label}}</label>
+    <label class="input-label">{{label}}</label>
     <div 
         #inputContainer
         class="input-container"
         [style.background]="backgroundStyle"
     >
         <input 
-        *ngIf="type !== 'file'"
-        #inputElement
-        [type]="type"
-        [placeholder]="placeholder"
+            *ngIf="type !== 'file' || 'textarea' "
+            #inputElement
+            [type]="type"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            class="input-field"
+            [(ngModel)]="value"
+            (ngModelChange)="onInputChange($event)"
+            (blur)="onTouched(); dirty = true; validateInput()"
+            [name]="name"
+        />
+        <input 
+            *ngIf="type === 'file'"
+            #fileInput
+            type="file"
+            [disabled]="disabled"
+            class="input-field file-input"
+            (change)="onFileChange($event)"
+            (blur)="onTouched()"
+            [name]="name"
+        />
+        <input 
+        *ngIf="type === 'textarea'"
+        type="textarea"
         [disabled]="disabled"
-        class="input-field"
         [(ngModel)]="value"
-        (ngModelChange)="onInputChange($event)"
+        class="input-field textarea"
         (blur)="onTouched()"
         [name]="name"
         />
-        <input 
-        *ngIf="type === 'file'"
-        #fileInput
-        type="file"
-        [disabled]="disabled"
-        class="input-field file-input"
-        (change)="onFileChange($event)"
-        (blur)="onTouched()"
-        [name]="name"
-    />
     </div>
+    <span class="error-input">{{validationError || error}}</span>
 </div>
