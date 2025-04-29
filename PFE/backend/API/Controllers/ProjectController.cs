@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using API.Services;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -89,8 +90,21 @@ namespace API.Controllers
         [HttpPost("PostProject")]
         public async Task<IActionResult> CreateProject([FromBody] ProjectDTO projectDTO)
         {
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return Unauthorized("Invalid token or user not authenticated.");
+            }
             var project = _mapper.Map<Project>(projectDTO);
             var result = await _mediator.Send(new PostGeneric<Project>(project));
+            var  member = new Member
+            {
+                ProjectId = project.ProjectId,
+                UserId = userId, 
+                Role = MemberRole.Product_Owner
+            };
             return Ok(new { Message = result });
         }
 

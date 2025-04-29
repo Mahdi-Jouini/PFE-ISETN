@@ -12,4 +12,7 @@ public class Project
     public DateTime CreatedDate { get; set; }
     public DateTime CompletionDate { get; set; }
 
+    // Navigation properties
+    public virtual ICollection<Sprint> Sprints { get; set; }
+
 }

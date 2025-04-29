@@ -22,30 +22,133 @@ namespace API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Models.Member", b =>
+            modelBuilder.Entity("Domain.Models.ProjectFile", b =>
                 {
-                    b.Property<string>("MemberId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nom")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SprintId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<long>("Taille")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("TicketId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("URL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SprintId");
+
+                    b.HasIndex("TicketId");
+
+                    b.ToTable("Files");
+                });
+
+            modelBuilder.Entity("Domain.Models.Sprint", b =>
+                {
+                    b.Property<string>("SprintId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ProjectId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MemberId");
+                    b.Property<string>("UserStory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SprintId");
 
                     b.HasIndex("ProjectId");
 
-                    b.HasIndex("UserId");
+                    b.ToTable("Sprints");
+                });
 
-                    b.ToTable("Members");
+            modelBuilder.Entity("Domain.Models.Ticket", b =>
+                {
+                    b.Property<string>("TicketId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Difficulty")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SprintId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("TicketId");
+
+                    b.HasIndex("SprintId");
+
+                    b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("Domain.Models.TicketMember", b =>
+                {
+                    b.Property<string>("TicketId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MemberId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("AssignedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TicketMemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TicketId", "MemberId");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("TicketMembers");
                 });
 
             modelBuilder.Entity("Domain.Models.User", b =>
@@ -78,6 +181,32 @@ namespace API.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Member", b =>
+                {
+                    b.Property<string>("MemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProjectId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MemberId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Members");
+                });
+
             modelBuilder.Entity("Project", b =>
                 {
                     b.Property<string>("ProjectId")
@@ -103,7 +232,63 @@ namespace API.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("Domain.Models.Member", b =>
+            modelBuilder.Entity("Domain.Models.ProjectFile", b =>
+                {
+                    b.HasOne("Domain.Models.Sprint", "Sprint")
+                        .WithMany("Files")
+                        .HasForeignKey("SprintId");
+
+                    b.HasOne("Domain.Models.Ticket", "Ticket")
+                        .WithMany("Files")
+                        .HasForeignKey("TicketId");
+
+                    b.Navigation("Sprint");
+
+                    b.Navigation("Ticket");
+                });
+
+            modelBuilder.Entity("Domain.Models.Sprint", b =>
+                {
+                    b.HasOne("Project", "Project")
+                        .WithMany("Sprints")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("Domain.Models.Ticket", b =>
+                {
+                    b.HasOne("Domain.Models.Sprint", "Sprint")
+                        .WithMany("Tickets")
+                        .HasForeignKey("SprintId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sprint");
+                });
+
+            modelBuilder.Entity("Domain.Models.TicketMember", b =>
+                {
+                    b.HasOne("Member", "Member")
+                        .WithMany("TicketMembers")
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.Ticket", "Ticket")
+                        .WithMany("TicketMembers")
+                        .HasForeignKey("TicketId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Member");
+
+                    b.Navigation("Ticket");
+                });
+
+            modelBuilder.Entity("Member", b =>
                 {
                     b.HasOne("Project", "Project")
                         .WithMany()
@@ -120,6 +305,30 @@ namespace API.Migrations
                     b.Navigation("Project");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Models.Sprint", b =>
+                {
+                    b.Navigation("Files");
+
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("Domain.Models.Ticket", b =>
+                {
+                    b.Navigation("Files");
+
+                    b.Navigation("TicketMembers");
+                });
+
+            modelBuilder.Entity("Member", b =>
+                {
+                    b.Navigation("TicketMembers");
+                });
+
+            modelBuilder.Entity("Project", b =>
+                {
+                    b.Navigation("Sprints");
                 });
 #pragma warning restore 612, 618
         }

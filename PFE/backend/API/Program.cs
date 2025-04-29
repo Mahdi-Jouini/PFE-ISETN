@@ -34,7 +34,11 @@ builder.Services.AddMediatR(cfg =>
 builder.Services
     .RegisterGenericHandlerFor<User>()
     .RegisterGenericHandlerFor<Project>()
-    .RegisterGenericHandlerFor<Member>();
+    .RegisterGenericHandlerFor<Member>()
+    .RegisterGenericHandlerFor<Sprint>()
+    .RegisterGenericHandlerFor<Ticket>()
+    .RegisterGenericHandlerFor<TicketMember>();
+
 
 
 // Add AutoMapper

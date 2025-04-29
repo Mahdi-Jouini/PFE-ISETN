@@ -20,6 +20,10 @@ namespace API.Mapper
             CreateMap<MemberDTO, Member>();
             CreateMap<Member, MemberDTO>()
                 .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User));
+
+
+            CreateMap<SprintDTO, Sprint>().ReverseMap();
+            CreateMap<TicketDTO, Ticket>().ReverseMap();
         }
 }
 

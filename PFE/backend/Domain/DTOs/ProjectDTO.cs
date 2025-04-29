@@ -14,5 +14,7 @@ namespace Domain.DTOs
         public DateTime CreatedDate { get; set; }
         public DateTime CompletionDate { get; set; }
         public UserDTO ProductOwner { get; set; }
+
+        public List<MemberDTO>? Members { get; set; }
     }
 }
