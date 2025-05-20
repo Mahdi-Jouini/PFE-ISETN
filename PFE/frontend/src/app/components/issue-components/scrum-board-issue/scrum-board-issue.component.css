@@ -1,0 +1,10 @@
+.issue-container{
+    /*background-color: var(--background-tertiary);*/
+    border-radius: 5px;
+    padding: 10px;
+}
+.infos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

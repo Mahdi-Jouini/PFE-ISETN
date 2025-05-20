@@ -1,4 +1,28 @@
-<div class="page">
-    <h1>Projects</h1>
-    <app-cards-hover-effect [items]="projects"></app-cards-hover-effect>
+<div>
+    <h2>Projects</h2>
+    <div class="projects-containes">
+        <div class="hover-background" [@enterAnimation] *ngIf="hovered" [ngStyle]="hoverStyles" ></div>
+        <div 
+          *ngFor="let project of projects; let idx = index" 
+          class="project-link"
+          (mouseenter)="hover(idx)"
+          (mouseleave)="unhover()"
+        >
+          <div 
+          #Card 
+          class="card"
+          (click)="navigate('project/' + project.projectId )"
+          >
+            <div class="card-content">
+              <div class="card-info">
+                <app-user-banner [user]="project.productOwner"/>
+              </div>
+              <div class="card-inner">
+                <h4 class="card-title">{{ project.title }}</h4>
+                <p class="card-description">{{ project.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>

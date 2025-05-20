@@ -556,3 +556,7 @@ C:\Users\21654\OneDrive\Documents\GitHub\projet d'integration\PFE-ISETN\PFE\back
 C:\Users\21654\OneDrive\Documents\GitHub\projet d'integration\PFE-ISETN\PFE\backend\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\21654\OneDrive\Documents\GitHub\projet d'integration\PFE-ISETN\PFE\backend\API\obj\Debug\net8.0\ref\API.dll
 C:\Users\21654\OneDrive\Documents\GitHub\projet d'integration\PFE-ISETN\PFE\backend\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Mahdi Jouini\source\repos\PFE\backend\API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Mahdi Jouini\source\repos\PFE\backend\API\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Mahdi Jouini\source\repos\PFE\backend\API\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+C:\Users\Mahdi Jouini\source\repos\PFE\backend\API\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

@@ -1,0 +1,20 @@
+<div class="state-dropdown" [class.open]="isOpen">
+    <app-hover-border-effect>
+      <div class="selected-state" (click)="toggleDropdown()">
+        <app-issue-icon *ngIf="IssueTypeSelect" [type]= currentState />
+        <span>{{ currentState || 'Select a state' }}</span>
+        <i *ngIf="isOpen" class="bi bi-chevron-up"></i>
+        <i *ngIf="!isOpen"class="bi bi-chevron-down"></i>
+      </div>
+    </app-hover-border-effect>
+    <div class="dropdown-menu" *ngIf="isOpen">
+      <div 
+        *ngFor="let state of states" 
+        class="dropdown-item"
+        [class.selected]="state === currentState"
+        (click)="selectState(state)">
+        <app-issue-icon *ngIf="IssueTypeSelect" [type]= state />
+        {{ state }}
+      </div>
+    </div>
+</div>

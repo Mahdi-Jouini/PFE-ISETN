@@ -1,0 +1,10 @@
+<div class="issue-container">
+    <h4>{{issue.title}}</h4>
+    <div class="infos">
+        <app-issue-icon [type]="issue.type"/>
+        {{issue.difficulty | issuePriority}}
+        <app-assignees-avatar-group
+        [issueId] = "issue.ticketId" 
+        [projectId]="projectId"/>
+    </div>
+</div>

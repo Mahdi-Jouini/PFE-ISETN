@@ -1,0 +1,22 @@
+<div class="user-search-container">
+  <dynamic-input
+      [editMode]="true"
+    type="text"
+    placeholder="Enter user email"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearchChange($event)"
+    name="searchInput"
+  ></dynamic-input>
+
+  <div class="search-results" *ngIf="searchTerm.length > 0">
+    <div *ngIf="isLoading" class="loading">Searching...</div>
+
+    <div *ngIf="!isLoading && searchResultsChange.observers.length === 0" class="no-results">
+      No users found
+    </div>
+
+    <div *ngIf="!isLoading && searchResultsChange.observers.length > 0">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

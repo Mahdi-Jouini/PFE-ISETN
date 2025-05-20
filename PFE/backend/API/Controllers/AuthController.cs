@@ -36,18 +36,18 @@ namespace API.Controllers
         {
             if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password))
             {
-                return BadRequest("Email and password are required.");
+                return BadRequest(new { Message = "Email and password are required."});
             }
 
             var utilisateur = await _mediator.Send(new GetByIDGeneric<User>(c => c.EmailAddress.Equals(request.Email)));
             if (utilisateur == null)
             {
-                return NotFound("User not found");
+                return NotFound(new { Message = "User not found" });
             }
 
             if (!request.Password.Equals(utilisateur.Password))
             {
-                return Unauthorized("Mot de passe incorrect");
+                return Unauthorized(new { Message = "Mot de passe incorrect" });
             }
 
 
@@ -55,9 +55,9 @@ namespace API.Controllers
             return Ok(new { Message = "Connection successful", Token = token });
         }
 
-        [HttpGet("sendOtp")]
+        [HttpPost("sendOtp")]
         [AllowAnonymous]
-        public async Task<IActionResult> VerifyMmail(string? emailAddress)
+        public async Task<IActionResult> VerifyMmail([FromBody] string emailAddress)
         {
             if (string.IsNullOrEmpty(emailAddress))
             {
@@ -79,8 +79,11 @@ namespace API.Controllers
             var user = _mapper.Map<User>(userDTO);
             var result = await _mediator.Send(new PostGeneric<User>(user));
             if (result == null) return StatusCode(500, "User registration failed.");
-            return Ok(new { Message = result });
+
+            var token = _tokenService.GenerateToken(user.UserId, user.EmailAddress);
+            return Ok(new { Message = "Connection successful", Token = token });
         }
+
 
         [HttpPost("resetPassword")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO request)
@@ -100,6 +103,20 @@ namespace API.Controllers
             if (result == null) return StatusCode(500, "Reset password failed.");
             return Ok(new { Message = "Password reset successfully." });
         }
+
+        [HttpPost("verifyOtp")]
+        [AllowAnonymous]
+        public IActionResult VerifyOtp([FromBody] OtpVerificationRequest request)
+        {
+            if (string.IsNullOrEmpty(request.EmailAddress) || string.IsNullOrEmpty(request.Otp))
+            {
+                return BadRequest(new { IsValid = false, Message = "Email and OTP are required." });
+            }
+
+            bool isValid = _otpService.ValidateOtp(request.EmailAddress, request.Otp);
+            return Ok(new { IsValid = isValid });
+        }
+
 
         [HttpGet("me")]
         public async Task<ActionResult<UserDTO>> GetCurrentUser()

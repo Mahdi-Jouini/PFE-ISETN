@@ -1,0 +1,49 @@
+<div class="chat-container">  
+    <div #chatContainer class="messages-container">
+      <div *ngIf="isLoading" class="loading-indicator">
+        <span>Loading messages...</span>
+      </div>
+      
+      <div *ngIf="!isLoading && messages.length === 0" class="no-messages">
+        <span>No messages yet. Start the conversation!</span>
+      </div>
+      
+      <div *ngFor="let message of messages" 
+           [ngClass]="{'message-container': true, 'current-user': isCurrentUserMessage(message), 'other-user': !isCurrentUserMessage(message)}">
+        <div class="message-header">
+          <img [src]="avatarUrl(message.senderAvatar)"
+               alt="User avatar" 
+               class="user-avatar">
+          <span class="sender-name">{{ message.senderName }}</span>
+          <span class="message-time">{{ formatMessageTime(message.sentAt) }}</span>
+        </div>
+        
+        <div class="message-content">
+          <p>{{ message.content }}</p>
+        </div>
+        
+        <div *ngIf="isCurrentUserMessage(message)" class="message-actions">
+          <button type="button" (click)="deleteMessage(message.messageId)" class="delete-btn">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <app-hover-border-effect>
+    <form [formGroup]="chatForm" (ngSubmit)="sendMessage($event)" class="message-input-container">
+      <input 
+        type="text" 
+        formControlName="messageInput"
+        placeholder="Type your message..." 
+        class="message-input"
+        [disabled]="sendingMessage">
+      <button 
+        type="submit" 
+        [disabled]="!chatForm.valid || sendingMessage" 
+        class="send-button">
+            <i class="bi bi-send-fill"></i>
+      </button>
+    </form>
+    </app-hover-border-effect>
+  </div>

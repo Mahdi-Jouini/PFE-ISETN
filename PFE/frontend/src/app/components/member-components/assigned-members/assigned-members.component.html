@@ -1,0 +1,5 @@
+<div class="assigned-members-container">
+    @for (member of assignees; track member.memberId) {
+    <app-user-banner [user]="member.user"/>
+    }
+</div>

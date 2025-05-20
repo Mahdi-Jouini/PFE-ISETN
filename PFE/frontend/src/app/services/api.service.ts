@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
@@ -20,21 +20,6 @@ export class APIService {
     if (this.isBrowser) {
       this.token = localStorage.getItem('auth_token') || '';
     }
-  }
-  
-  AUTH(root: string, user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}${root}`, user, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    }).pipe(
-      tap((response: any) => {
-        if (response && response.token) {
-          this.token = response.token;
-          if (this.isBrowser) {
-            localStorage.setItem('auth_token', this.token);
-          }
-        }
-      })
-    );
   }
   
   private getHeaders(): HttpHeaders {
@@ -62,8 +47,9 @@ export class APIService {
     });
   }
   
-  PUT(root: string, id: string, data: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}${root}/${id}`, data, {
+  PUT(root: string, data?: any): Observable<any> {
+
+    return this.http.put(`${this.apiUrl}${root}`, data, {
       headers: this.getHeaders()
     });
   }
@@ -87,8 +73,52 @@ export class APIService {
       headers: headers
     });
   }
+
+  uploadFile(endpoint: string, formData: FormData): Observable<any> {
+    let headers = new HttpHeaders();
+    if (this.token) {
+      headers = headers.append('Authorization', `Bearer ${this.token}`);
+    }
   
-  GET_FILE(fileName: string): string {
+    return this.http.post(`${this.apiUrl}/${endpoint}`, formData, {
+      headers: headers
+    })
+  }
+
+  uploadAndAttachFiles(files: File[], meta: { projectId?: string, sprintId?: string, ticketId?: string }): Observable<any> {
+    const formData = new FormData();
+    files.forEach(file => formData.append('files', file));
+  
+    let headers = new HttpHeaders();
+    if (this.token) {
+      headers = headers.append('Authorization', `Bearer ${this.token}`);
+    }
+  
+    return this.http.post<any[]>(`${this.apiUrl}/File/UploadMultipleFiles`, formData, { headers }).pipe(
+      switchMap((uploadedFiles: any[]) => {
+        const attachments = uploadedFiles.map(file => ({
+          originalName: file.originalName,
+          size: file.size,
+          url: file.url,
+          type: file.type,
+          projectId: meta.projectId?.trim() || null,
+          sprintId: meta.sprintId?.trim() || null,
+          ticketId: meta.ticketId?.trim() || null,
+
+
+        }));
+        console.log(attachments)
+  
+        return this.http.post<any>(`${this.apiUrl}/File/AddFilesAttachment`, attachments, { headers });
+      })
+    );
+  }
+  
+  
+  
+  
+  
+  GET_FILE(fileName?: string): string {
     const fileURL = `${this.apiUrl}/File/${fileName}`
     return (fileURL);
   }

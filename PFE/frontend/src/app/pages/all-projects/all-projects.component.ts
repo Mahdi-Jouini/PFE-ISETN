@@ -1,18 +1,41 @@
-import { Component } from '@angular/core';
-import { CardItem, CardsHoverEffectComponent } from "../../components/ui/cards-hover-effect/cards-hover-effect.component";
+import { Component, ElementRef, Input, QueryList, ViewChildren } from '@angular/core';
 import { APIService } from '../../services/api.service';
-import { log } from 'console';
+import { Member } from '../../interfaces/member';
+import { Project } from '../../interfaces/project';
+import { Router } from '@angular/router';
+import { trigger, style, animate, transition } from '@angular/animations';
+import { CommonModule } from '@angular/common';
+import { UserBannerComponent } from '../../components/user-components/user-banner/user-banner.component';
 
 @Component({
   selector: 'app-all-projects',
-  imports: [CardsHoverEffectComponent],
+  standalone: true,
+  imports: [CommonModule, UserBannerComponent],
   templateUrl: './all-projects.component.html',
-  styleUrl: './all-projects.component.css'
+  styleUrl: './all-projects.component.css',
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('0.1s', style({ opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('0.1s', style({ opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class AllProjectsComponent {
-  constructor(private apiService: APIService) { }
+  
+  @ViewChildren('Card') elements!: QueryList<ElementRef>;
+  hoverStyles = { top: '0px', left: '0px', opacity: '0' }
+  hovered = false ;
+  projects! : Project[];
 
-  projects! : CardItem[];
+  constructor(private apiService: APIService, private router: Router) { }
 
   ngOnInit(): void {
     this.apiService.GET_All('/Project/getAllProjects').subscribe({
@@ -27,17 +50,23 @@ export class AllProjectsComponent {
     })
   }
 
+  hover(index: number) {
+    const el = this.elements.toArray()[index];
+    const { x, y } = el.nativeElement.getBoundingClientRect();
+    this.hovered = true ;
+    this.hoverStyles  = {
+      top: `${y}px`,
+      left: `${x}px`,
+      opacity: '1',
+      
+    }
+  }
+  unhover(){
+    this.hovered = false;
+  }
 
+  navigate(root : string){
+    this.router.navigate(['/'+root]);
+  }
 
-  /*featureItems: CardItem[] = [
-    {
-      title: 'CodeFix AI Assistant',
-      description: 'An intelligent tool that detects bugs in code and suggests real-time fixes using machine learning. Supports multiple programming languages and integrates into popular IDEs.',
-      link: '/analytics',
-      avatar: 'http://localhost:5230/api/File/2.jpg',
-      userName: 'Foued Tahan',
-      createdAt: '20/3/2025',
-    },
-
-  ];*/
 }

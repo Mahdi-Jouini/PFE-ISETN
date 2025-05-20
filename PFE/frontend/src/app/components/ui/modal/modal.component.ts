@@ -1,32 +1,38 @@
+// modal.component.ts
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import { Component, ElementRef, HostListener, ContentChild, Directive, Input } from '@angular/core';
+import { ModalTriggerDirective } from '../../../directives/modal-trigger.directive';
 
 @Component({
   selector: 'app-modal',
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatIconModule
-  ],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './modal.component.html',
-  styleUrl: './modal.component.css'
+  styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  @Input() isOpen = false;
-  @Input() title = 'Modal Title';
+  isOpen = false;
+  @Input() ModalTitle!: string ;
   
-  @Output() closeModal = new EventEmitter<void>();
-
-  close() {
-    this.isOpen = false;
-    this.closeModal.emit();
+  @ContentChild(ModalTriggerDirective)
+  customTrigger?: ModalTriggerDirective;
+  
+  constructor(private elementRef: ElementRef) {}
+  
+  openModal() {
+    this.isOpen = true;
+    document.body.style.overflow = 'hidden';
   }
   
-  closeOnOverlay(event: MouseEvent) {
-    this.close();
+  closeModal() {
+    this.isOpen = false;
+    document.body.style.overflow = '';
+  }
+  
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent) {
+    if (this.isOpen && event.target === this.elementRef.nativeElement.querySelector('.modal-overlay')) {
+      this.closeModal();
+    }
   }
 }

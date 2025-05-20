@@ -5,17 +5,21 @@
             <p *ngIf="subtitle">{{ subtitle }}</p>
         </div>
         <div class="fields">
-            <input *ngFor="let digit of otpArray; let i = index" 
-                  [(ngModel)]="otp[i]"
-                  #otpInput
-                  maxlength="1"
-                  class="otp-field"
-                  type="text"
-                  attr.inputmode="{{ allowAlphanumeric ? 'text' : 'numeric' }}"
-                  (input)="onOtpInputChange(i, $event)"
-                  (keydown)="onKeyDown(i, $event)"
-                  (paste)="onPaste($event, i)"
-                  autocomplete="one-time-code">
+            @for (digit of otpArray; track $index) {
+            <app-hover-border-effect>
+                <input 
+                    [(ngModel)]="otp[$index]"
+                    #otpInput
+                    maxlength="1"
+                    class="otp-field"
+                    type="text"
+                    attr.inputmode="{{ allowAlphanumeric ? 'text' : 'numeric' }}"
+                    (input)="onOtpInputChange($index, $event)"
+                    (keydown)="onKeyDown($index, $event)"
+                    (paste)="onPaste($event, $index)"
+                    autocomplete="one-time-code"
+                >
+            </app-hover-border-effect>}
         </div>
     </div>
 </div>

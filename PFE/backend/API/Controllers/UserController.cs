@@ -8,7 +8,6 @@ using Domain.DTOs;
 using Domain.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-
 using Domain.Models;
 using API.Services;
 
@@ -22,8 +21,7 @@ namespace API.Controllers
         private readonly IMapper _mapper;
         private readonly TokenService _tokenService;
 
-
-        public  UserController(IMediator mediator, IMapper mapper, TokenService tokenService)
+        public UserController(IMediator mediator, IMapper mapper, TokenService tokenService)
         {
             _mediator = mediator;
             _mapper = mapper;
@@ -41,10 +39,8 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> GetUser(string? id)
         {
             var user = await _mediator.Send(new GetByIDGeneric<User>(c => c.UserId.Equals(id)));
-
             if (user == null)
                 return NotFound("User not found");
-
             return Ok(_mapper.Map<UserDTO>(user));
         }
 
@@ -52,11 +48,18 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> GetUserByEmail(string? email)
         {
             var user = await _mediator.Send(new GetByIDGeneric<User>(c => c.EmailAddress.Equals(email)));
-
             if (user == null)
                 return NotFound("User not found");
-
             return Ok(_mapper.Map<UserDTO>(user));
+        }
+
+        [HttpGet("searchUsersByEmail")]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> SearchUsersByEmail(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+                return Ok(new List<UserDTO>());
+            var users = await _mediator.Send(new GetAllGeneric<User>(u => u.EmailAddress.Contains(searchTerm)));
+            return Ok(users.Select(u => _mapper.Map<UserDTO>(u)));
         }
 
         [HttpPost("PostUser")]
@@ -68,12 +71,10 @@ namespace API.Controllers
         }
 
         [HttpPut("PutUser")]
-        public async Task<string> PutUser(User  user)
+        public async Task<string> PutUser(User user)
         {
-
-            return await _mediator.Send(new PutGeneric<User>( user));
+            return await _mediator.Send(new PutGeneric<User>(user));
         }
-
 
         [HttpDelete("DeleteUser")]
         public async Task<string> DeleteUser(string id)

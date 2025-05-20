@@ -1,9 +1,12 @@
 import { Issue } from "./issue";
 
 export interface Sprint {
-    sprintNumber: string;
-    creationDate: string;
-    issuesNumber: number;
-    state: 'Planned' | 'In Progress' | 'Completed';
-    issues: Issue[];
-  }
+  sprintId: string,
+  title: string,
+  description: string,
+  duration: string,
+  sprintState: string,
+  startDate: Date,
+  completionDate: Date,
+  projectId: string,
+}

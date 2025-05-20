@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 public class Project
 {
@@ -14,5 +15,7 @@ public class Project
 
     // Navigation properties
     public virtual ICollection<Sprint> Sprints { get; set; }
+    public virtual ICollection<FilesAttachment> FileAttachments { get; set; }
+    public virtual ICollection<Message> Messages { get; set; }
 
 }

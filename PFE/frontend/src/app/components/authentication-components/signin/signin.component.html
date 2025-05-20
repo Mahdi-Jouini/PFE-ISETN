@@ -1,0 +1,40 @@
+<div class="signin">
+    <div class="hader">
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <dynamic-input
+            label="Email Address"
+            type="text"
+            [editMode]="true"
+            placeholder="Enter your name"
+            formControlName="email"
+            [validation]="{ required: true,}"
+        />
+        <dynamic-input
+            label="Password"
+            type="text"
+            [editMode]="true"
+            placeholder="Enter your name"
+            formControlName="password"
+            [validation]="{ required: true, minLength: 6 }"
+        />
+        <button type="submit">Sign In</button>
+        <app-modal #resetPasswordModal ModalTitle="Reset Password">
+            <p
+            appModalTrigger
+            (click)="resetPasswordModal.openModal()"
+            class="forgot-password"
+            >
+                Forgot password ?
+            </p>
+            <app-reset-password/>
+        </app-modal>
+    </form>
+    <app-alert
+        *ngIf="showAlert"
+        [type]="alertType" 
+        [message]="alertMessage" 
+        [dismissible]="true"
+        (close)="onAlertClose()">
+    </app-alert> 
+</div>

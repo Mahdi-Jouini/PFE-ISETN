@@ -1,6 +1,6 @@
 export interface Member {
     memberId: string;
-    role: number ;
+    role: string ;
     user:{
         userId: string;
         avatar: string;

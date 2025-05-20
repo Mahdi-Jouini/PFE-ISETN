@@ -1,0 +1,43 @@
+<div class="members-management-container">
+  <div class="members-header">
+    <h5>Scrum Team :</h5>
+    <app-icon-button
+    (click)="onSearchMember()"
+    icon="bi bi-plus"
+    />
+  </div>
+<div class="members">
+  <div class="members-container">
+    <div class="member-list-container" *ngFor="let role of roleKeys">
+      <h5>{{ role.replace('_', ' ') }}</h5>
+      <div
+        cdkDropList
+        [id]="role"
+        [cdkDropListData]="membersByRole[role]"
+        [cdkDropListConnectedTo]="allDropListIds"
+        class="member-list"
+        (cdkDropListDropped)="drop($event, role)">
+        <div *ngFor="let user of membersByRole[role]" class="member-box" cdkDrag>
+          <app-user-banner [user]="user"></app-user-banner>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-user-container" [@searchMemberAnimation]="searchMember ? 'visible' : 'hidden'">
+      <app-search-user *ngIf="searchMember" (searchResultsChange)="onSearchResults($event)"></app-search-user>
+      <div
+        *ngIf="searchMember"
+        cdkDropList
+        id="searchResults"
+        [cdkDropListData]="searchResults"
+        [cdkDropListConnectedTo]="allDropListIds"
+        class="member-list"
+        (cdkDropListDropped)="drop($event, '')">
+        <div *ngFor="let user of searchResults" class="member-box" cdkDrag>
+          
+          <app-user-banner [user]="user"></app-user-banner>
+        </div>
+    </div>
+  </div>
+</div>
+</div>

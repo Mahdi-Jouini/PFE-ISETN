@@ -1,6 +1,7 @@
 
-<div class="page">
-    <p>{{project.title}}</p>
-    <p>{{project.description}}</p>
+<div class="project-page">
+    <div class="project-details">
+       <app-read-edit-project [project]="project"/> 
+    </div>
     <app-members ProjectId={{id}}></app-members>
 </div>

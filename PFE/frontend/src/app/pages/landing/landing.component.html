@@ -1,36 +1,38 @@
 <div class="container">
     <div class="radial-gradient"></div>
-
+    <img class="background" src="/assets/background.svg">
     <div class="content">
-        <h2>Unleash your team's potential with agile project management. Join the revolution today!</h2>
-        <div class="singin-signup">
-            <button class="signin" (click)="openSignIn()">
-                <span class="signin-content">Sign In </span>
-            </button>
-            <button class="learn-more" (click)="openSignUp()">
-                <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-                </span>
-                <span class="button-text">Sign up</span>
-            </button>
+        <app-aurora-title
+        title="Turn Sprints Into Success."
+        subtitle="Ready to move beyond outdated tools and scattered workflows? 
+                Join us and experience how smart Scrum can drive results, boost accountability, 
+                and bring your projects to life."
+        />
+        <div class="button-group">
+            <app-modal #signInModal ModalTitle="Sign In">
+                <button
+                    appModalTrigger
+                    (click)="signInModal.openModal()"
+                    class="signin-button" 
+                >
+                    Sign In
+                </button>
+                <app-signin/>
+            </app-modal>
+            <app-modal #signUpModal ModalTitle="Sign Up">
+                <button
+                appModalTrigger
+                (click)="signUpModal.openModal()"
+                class="signup-button" 
+                >
+                    <span class="button-icon-wrapper">
+                        <i class="bi bi-arrow-up-right button-icon"></i>
+                        <i class="bi bi-arrow-up-right button-icon button-icon-copy"></i>
+                    </span>
+                    Sign Up
+                  </button>
+                <app-signup/>
+            </app-modal>
         </div>
     </div>
-    <div class="graps">
-    </div>
-    <app-modal 
-        [isOpen]="isSignUpOpen" 
-        title="Confirm Action"
-        (closeModal)="onSignUpClose()"
-        (confirmModal)="onSignUpConfirm()"
-    >
-        <app-signup/>
-    </app-modal>
-    <app-modal 
-    [isOpen]="isSignInOpen" 
-    title="Confirm Action"
-    (closeModal)="onSignInClose()"
-    (confirmModal)="onSignInConfirm()"
-    >
-        <app-signin/>
-    </app-modal>
 </div>

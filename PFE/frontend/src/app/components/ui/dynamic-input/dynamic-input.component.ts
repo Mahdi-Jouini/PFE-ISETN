@@ -1,27 +1,28 @@
-// dynamic-input.component.ts
-import { 
-  Component, 
-  Input as AngularInput, 
-  forwardRef, 
-  ElementRef, 
-  ViewChild, 
-  HostListener, 
-  OnInit,
-  OnChanges,
-  SimpleChanges
+import {
+  Component,
+  Input as AngularInput,
+  forwardRef,
+  ElementRef,
+  ViewChild,
+  Output,
+  EventEmitter,
 } from '@angular/core';
-import { 
-  ControlValueAccessor, 
-  NG_VALUE_ACCESSOR, 
-  FormsModule 
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NG_VALIDATORS,
+  Validator,
+  AbstractControl,
+  ValidationErrors,
+  FormsModule
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { IconButtonComponent } from "../icon-button/icon-button.component";
-import { ValidationService } from '../../../services/validation.service';
+import { HoverBorderEffectComponent } from "../hover-border-effect/hover-border-effect.component";
 
 @Component({
-  selector: 'CustomInput',
-  imports: [CommonModule, FormsModule],
+  selector: 'dynamic-input',
+  standalone: true,
+  imports: [CommonModule, FormsModule, HoverBorderEffectComponent,],
   templateUrl: './dynamic-input.component.html',
   styleUrl: './dynamic-input.component.css',
   providers: [
@@ -29,142 +30,76 @@ import { ValidationService } from '../../../services/validation.service';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => DynamicInputComponent),
       multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => DynamicInputComponent),
+      multi: true
     }
   ]
 })
-export class DynamicInputComponent implements ControlValueAccessor, OnInit, OnChanges {
+export class DynamicInputComponent implements ControlValueAccessor, Validator {
   @AngularInput() label: string = '';
   @AngularInput() type: string = 'text';
-  @AngularInput() action: string = '';
   @AngularInput() placeholder: string = '';
   @AngularInput() name: string = '';
   @AngularInput() error: string = '';
-  @AngularInput() validate: boolean = false;
-  @AngularInput() validationType: 'email' | 'name' | 'password' | 'confirmPassword' | '' = '';
-  @AngularInput() validationOptions: any = {};
-  @AngularInput() compareValue: string = ''; // For password confirmation
+  @AngularInput() editMode: boolean = false;
+  @AngularInput() enableValidation: boolean = false;
 
-  @ViewChild('inputContainer', { static: true }) 
-  inputContainer!: ElementRef<HTMLDivElement>;
+  @AngularInput() validation: any = null;
 
-  @ViewChild('inputElement', { static: true }) 
-  inputElement!: ElementRef<HTMLInputElement>;
+  @Output() validityChanged = new EventEmitter<boolean>();
 
-  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
-  file: File | null = null;
+  @ViewChild('inputElement') inputElement!: ElementRef;
 
   value: string = '';
-  disabled = false;
+  disabled: boolean = false;
   validationError: string = '';
   dirty: boolean = false;
-  
-  private mouseX = 0;
-  private mouseY = 0;
-  private visible = false;
-  private radius = 100;
 
-  backgroundStyle: string = '';
+  private onChange = (_: any) => {};
+  private onTouch = () => {};
 
-  // ControlValueAccessor methods
-  onChange = (_: any) => {};
-  onTouched = () => {};
+  /*ngOnInit(): void {
+    this.validateInput();
+  }*/
 
-  constructor(private validationService: ValidationService) {}
-
-  @HostListener('mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    const container = this.inputContainer.nativeElement;
-    const rect = container.getBoundingClientRect();
-    
-    this.mouseX = event.clientX - rect.left;
-    this.mouseY = event.clientY - rect.top;
-    
-    this.updateBackgroundStyle();
-  }
-
-  @HostListener('mouseenter')
-  onMouseEnter() {
-    this.visible = true;
-    this.updateBackgroundStyle();
-  }
-
-  @HostListener('mouseleave')
-  onMouseLeave() {
-    this.visible = false;
-    this.updateBackgroundStyle();
-  }
-
-  ngOnInit() {
-    this.updateBackgroundStyle();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if ((changes['validate'] || changes['validationType'] || changes['value'] || changes['compareValue']) && this.dirty) {
-      this.validateInput();
-    }
-  }
-
-  private updateBackgroundStyle() {
-    this.backgroundStyle = this.visible 
-      ? `radial-gradient(
-          ${this.radius}px circle at ${this.mouseX}px ${this.mouseY}px, 
-          #3b82f6, 
-          transparent 80%
-        )`
-      : '';
-  }
-
-  // Add this new method specifically for file inputs
-  onFileChange(event: Event) {
-    const file = (event.target as HTMLInputElement)?.files?.[0];
-    if (file) {
-      this.file = file;
-      this.value = file.name;
-      this.onChange(file);
-    }
-  }
-
-  // Keep the regular onInputChange method for non-file inputs
-  onInputChange(event: any) {
-    const value = event;
+  onInputChange(value: string): void {
     this.value = value;
     this.onChange(value);
     this.dirty = true;
-    
-    if (this.validate && this.validationType) {
-      this.validateInput();
-    }
+    this.validateInput();
   }
-  
-  // Method to validate input based on type
-  validateInput() {
-    if (!this.validate || !this.validationType) {
-      this.validationError = '';
-      return;
+
+  onBlur(): void {
+    this.onTouch();
+    this.dirty = true;
+    this.validateInput();
+  }
+
+  validateInput(): void {
+    let isValid = true;
+    this.validationError = '';
+
+    if (this.enableValidation && this.validation) {
+      if (this.validation.required && (!this.value || this.value.trim() === '')) {
+        this.validationError = 'This field is required';
+        isValid = false;
+      } else if (this.validation.minLength && this.value.length < this.validation.minLength) {
+        this.validationError = `Minimum length is ${this.validation.minLength} characters`;
+        isValid = false;
+      } else if (this.validation.maxLength && this.value.length > this.validation.maxLength) {
+        this.validationError = `Maximum length is ${this.validation.maxLength} characters`;
+        isValid = false;
+      }
     }
 
-    // For password confirmation, add the compareValue to options
-    if (this.validationType === 'confirmPassword') {
-      this.validationOptions = {
-        ...this.validationOptions,
-        password: this.compareValue
-      };
-    }
-
-    this.validationError = this.validationService.validate(
-      this.value, 
-      this.validationType,
-      this.validationOptions
-    );
+    this.validityChanged.emit(isValid);
   }
-  
+
   writeValue(value: any): void {
-    if (this.type === 'file' && value instanceof File) {
-      this.file = value;
-      this.value = value?.name || '';
-    } else {
-      this.value = value || '';
-    }
+    this.value = value || '';
   }
 
   registerOnChange(fn: any): void {
@@ -172,10 +107,26 @@ export class DynamicInputComponent implements ControlValueAccessor, OnInit, OnCh
   }
 
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;
+    this.onTouch = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+  validate(control: AbstractControl): ValidationErrors | null {
+    if (!this.validate) return null;
+
+    const value = control.value;
+
+    if (this.validation?.required && (!value || value.trim() === '')) {
+      return { required: true };
+    }
+
+    if (this.validation?.minLength && value?.length < this.validation.minLength) {
+      return { minLength: { requiredLength: this.validation.minLength, actualLength: value.length } };
+    }
+
+    if (this.validation?.maxLength && value?.length > this.validation.maxLength) {
+      return { maxLength: { requiredLength: this.validation.maxLength, actualLength: value.length } };
+    }
+
+    return null;
   }
 }

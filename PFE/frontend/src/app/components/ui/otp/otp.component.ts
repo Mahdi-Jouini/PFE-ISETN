@@ -1,14 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HoverBorderEffectComponent } from "../hover-border-effect/hover-border-effect.component";
 
 @Component({
   selector: 'app-otp',
   standalone: true,
   imports: [
-    CommonModule,      
-    FormsModule
-  ],
+    CommonModule,
+    FormsModule,
+    HoverBorderEffectComponent
+],
   templateUrl: './otp.component.html',
   styleUrl: './otp.component.css'
 })

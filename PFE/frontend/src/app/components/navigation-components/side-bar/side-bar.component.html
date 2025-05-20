@@ -1,0 +1,24 @@
+    <div
+    class="side-bar"
+    [@sidebarAnimation]="open ? 'open' : 'closed'"
+    >
+        <div class="side-bar-container" >
+            <div class="side-bar-toggle">
+                <button (click)="toggle()" >
+                    <i class="bi" [ngClass]="open ? 'bi-chevron-left' : 'bi-chevron-right'"></i>
+                </button>
+            </div>
+            @for (item of items; track $index) {
+            <div class="side-bar-item" (click)="navigate(item.link)">
+                <button class="item-icon" >
+                <span class="material-symbols-rounded">
+                    {{item.icon}}
+                </span>
+                </button>
+                <div class="side-bar-label" *ngIf="open" [@labelAnimation]="open ? 'visible' : 'hidden'">
+                    {{item.label}}
+                </div>
+            </div>
+            }
+        </div>
+    </div>

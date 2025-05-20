@@ -1,0 +1,56 @@
+.state-dropdown {
+    position: relative;
+    max-width: 150px;
+    
+}
+
+.selected-state {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0.5rem;
+    background-color: var(--input-background);
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    max-width: 150px;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    border: 1px solid var(--border);
+    overflow-y: auto;
+    background-color: var(--background);
+    border-radius:4px;
+    z-index: 10;
+    box-shadow: var(--shadow-sm)
+}
+
+.dropdown-item {
+    height: 25px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.2s ease-in-out;
+}
+.dropdown-item:hover{
+    background-color: var(--secondary-hover);
+}
+.dropdown-item.selected {
+    color: var(--primary-hover);
+}

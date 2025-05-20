@@ -1,0 +1,18 @@
+<div class="state-dropdown" [class.open]="isOpen">
+    <app-hover-border-effect>
+      <div class="selected-state" (click)="toggleDropdown()">
+        <span>{{ (currentStoryPoint | issuePriority) || 'Select a state' }}</span>
+        <i *ngIf="isOpen" class="bi bi-chevron-up"></i>
+        <i *ngIf="!isOpen" class="bi bi-chevron-down"></i>
+      </div>
+    </app-hover-border-effect>
+    <div class="dropdown-menu" *ngIf="isOpen">
+      <div 
+        *ngFor="let storyPoint of storyPoints" 
+        class="dropdown-item"
+        [class.selected]="storyPoint === currentStoryPoint"
+        (click)="selectStoryPoint(storyPoint)">
+        {{ storyPoint | issuePriority}} 
+      </div>
+    </div>
+</div>

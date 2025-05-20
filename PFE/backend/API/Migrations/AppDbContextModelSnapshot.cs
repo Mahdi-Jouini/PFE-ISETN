@@ -22,7 +22,7 @@ namespace API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Models.ProjectFile", b =>
+            modelBuilder.Entity("Domain.Models.FilesAttachment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,15 +30,14 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Nom")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("ProjectId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("SprintId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<long>("Taille")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("TicketId")
                         .HasColumnType("nvarchar(450)");
@@ -51,13 +50,129 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("originalName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
 
                     b.HasIndex("SprintId");
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("Files");
+                    b.ToTable("FilesAttachments");
+                });
+
+            modelBuilder.Entity("Domain.Models.Invitation", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProjectId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ReceiverId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.ToTable("Invitation");
+                });
+
+            modelBuilder.Entity("Domain.Models.Message", b =>
+                {
+                    b.Property<string>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("Domain.Models.Notification", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ActorId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("InvitationId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MessageId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("NotificationMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SprintId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TicketId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActorId");
+
+                    b.HasIndex("InvitationId");
+
+                    b.HasIndex("MessageId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("SprintId");
+
+                    b.HasIndex("TicketId");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("Domain.Models.Sprint", b =>
@@ -66,25 +181,27 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("CompletionDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
 
                     b.Property<string>("ProjectId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("SprintState")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserStory")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -181,6 +298,31 @@ namespace API.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Domain.Models.UserNotification", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("NotificationId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ReadAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("UserId", "NotificationId");
+
+                    b.HasIndex("NotificationId");
+
+                    b.ToTable("UserNotifications");
+                });
+
             modelBuilder.Entity("Member", b =>
                 {
                     b.Property<string>("MemberId")
@@ -192,6 +334,9 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -232,15 +377,101 @@ namespace API.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("Domain.Models.ProjectFile", b =>
+            modelBuilder.Entity("Domain.Models.FilesAttachment", b =>
                 {
+                    b.HasOne("Project", "Project")
+                        .WithMany("FileAttachments")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Domain.Models.Sprint", "Sprint")
-                        .WithMany("Files")
+                        .WithMany("FileAttachments")
+                        .HasForeignKey("SprintId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Domain.Models.Ticket", "Ticket")
+                        .WithMany("FileAttachments")
+                        .HasForeignKey("TicketId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Project");
+
+                    b.Navigation("Sprint");
+
+                    b.Navigation("Ticket");
+                });
+
+            modelBuilder.Entity("Domain.Models.Invitation", b =>
+                {
+                    b.HasOne("Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Models.Message", b =>
+                {
+                    b.HasOne("Project", "Project")
+                        .WithMany("Messages")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.User", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+
+                    b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("Domain.Models.Notification", b =>
+                {
+                    b.HasOne("Domain.Models.User", "Actor")
+                        .WithMany()
+                        .HasForeignKey("ActorId");
+
+                    b.HasOne("Domain.Models.Invitation", "Invitation")
+                        .WithMany()
+                        .HasForeignKey("InvitationId");
+
+                    b.HasOne("Domain.Models.Message", "Message")
+                        .WithMany()
+                        .HasForeignKey("MessageId");
+
+                    b.HasOne("Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId");
+
+                    b.HasOne("Domain.Models.Sprint", "Sprint")
+                        .WithMany()
                         .HasForeignKey("SprintId");
 
                     b.HasOne("Domain.Models.Ticket", "Ticket")
-                        .WithMany("Files")
+                        .WithMany()
                         .HasForeignKey("TicketId");
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Invitation");
+
+                    b.Navigation("Message");
+
+                    b.Navigation("Project");
 
                     b.Navigation("Sprint");
 
@@ -288,6 +519,25 @@ namespace API.Migrations
                     b.Navigation("Ticket");
                 });
 
+            modelBuilder.Entity("Domain.Models.UserNotification", b =>
+                {
+                    b.HasOne("Domain.Models.Notification", "Notification")
+                        .WithMany("UserNotifications")
+                        .HasForeignKey("NotificationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.User", "User")
+                        .WithMany("UserNotifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Notification");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Member", b =>
                 {
                     b.HasOne("Project", "Project")
@@ -307,18 +557,28 @@ namespace API.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Domain.Models.Notification", b =>
+                {
+                    b.Navigation("UserNotifications");
+                });
+
             modelBuilder.Entity("Domain.Models.Sprint", b =>
                 {
-                    b.Navigation("Files");
+                    b.Navigation("FileAttachments");
 
                     b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("Domain.Models.Ticket", b =>
                 {
-                    b.Navigation("Files");
+                    b.Navigation("FileAttachments");
 
                     b.Navigation("TicketMembers");
+                });
+
+            modelBuilder.Entity("Domain.Models.User", b =>
+                {
+                    b.Navigation("UserNotifications");
                 });
 
             modelBuilder.Entity("Member", b =>
@@ -328,6 +588,10 @@ namespace API.Migrations
 
             modelBuilder.Entity("Project", b =>
                 {
+                    b.Navigation("FileAttachments");
+
+                    b.Navigation("Messages");
+
                     b.Navigation("Sprints");
                 });
 #pragma warning restore 612, 618

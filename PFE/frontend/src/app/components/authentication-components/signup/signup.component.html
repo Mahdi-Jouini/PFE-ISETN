@@ -1,0 +1,105 @@
+<div class="signup-container">
+  <div class="signup-content">
+    <mat-stepper linear #stepper>
+      <mat-step [stepControl]="fillInformationForm">
+        <form [formGroup]="fillInformationForm">
+          <ng-template matStepLabel>Fill out your Information</ng-template>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <dynamic-input
+                label="First name"
+                type="text"
+                placeholder="Enter your first name"
+                formControlName="firstName"
+                [editMode]="true"
+                [enableValidation]="true"
+                [validation]="{ required: true, minLength: 2 }"
+                (validityChanged)="fieldValidity['firstName'] = $event"
+              ></dynamic-input>
+            </div>
+            <div class="form-col">
+              <dynamic-input
+                label="Last name"
+                type="text"
+                placeholder="Enter your Last name"
+                formControlName="lastName"
+                [editMode]="true"
+                [enableValidation]="true"
+                [validation]="{ required: true, minLength: 2 }"
+                (validityChanged)="fieldValidity['lastName'] = $event"
+              ></dynamic-input>
+            </div>
+          </div>
+          <dynamic-file-input
+          #fileInputRef
+          formControlName="avatar"
+          [required]="true"
+          [maxSizeMB]="3"
+          (fileUploaded)="onAvatarUploaded($event)"
+        ></dynamic-file-input>
+
+          <dynamic-input
+            label="Email Address"
+            type="text"
+            placeholder="Enter your email address"
+            formControlName="emailAddress"
+            [editMode]="true"
+            [enableValidation]="true"
+            [validation]="{ required: true }"
+            (validityChanged)="fieldValidity['emailAddress'] = $event"
+          ></dynamic-input>
+
+          <dynamic-input
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+            formControlName="password"
+            [editMode]="true"
+            [enableValidation]="true"
+            [validation]="{ required: true, minLength: 9 }"
+            (validityChanged)="fieldValidity['password'] = $event"
+          ></dynamic-input>
+
+          <dynamic-input
+            label="Confirm Password"
+            type="password"
+            placeholder="Confirm your password"
+            formControlName="confirmPassword"
+            [editMode]="true"
+          />
+
+          <div class="button-container">
+            <button 
+              (click)="onVerifyEmail()" 
+              matStepperNext
+              [disabled]="!isAllValid()"
+            >
+              Verify Email
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="verifyEmailForm">
+        <form [formGroup]="verifyEmailForm">
+          <ng-template matStepLabel>Verify your email</ng-template>
+
+          <app-otp
+            [otpLength]="5"
+            [allowAlphanumeric]="true"
+            [title]="'Verify Account'"
+            [subtitle]="'Enter the verification code sent to ' + emailAddress"
+            (otpComplete)="onOtpComplete($event)"
+            (otpChange)="onOtpChange($event)">
+          </app-otp>
+
+          <div class="button-container">
+            <button matStepperPrevious></button>
+            <button (click)="onSignUp()">Sign up</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

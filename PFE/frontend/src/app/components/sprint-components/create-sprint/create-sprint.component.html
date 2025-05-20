@@ -1,0 +1,32 @@
+<div class="create-sprint-container">
+    <form [formGroup]="fillInformationForm" (ngSubmit)="createSprint()">
+        <dynamic-input
+        label="Sprint title"
+        type="text"
+        placeholder="Enter your sprint title"
+        formControlName="title"
+        [enableValidation]="true"
+        [editMode]="true"
+        [validation]="{ required: true, minLength: 2 }"
+        (validityChanged)="fieldValidity['title'] = $event"
+      ></dynamic-input>
+      <dynamic-input
+        label="Sprint description"
+        type="text"
+        placeholder="Enter your sprint description"
+        formControlName="description"
+        [enableValidation]="true"
+        [editMode]="true"
+        [validation]="{ required: true, minLength: 2 }"
+        (validityChanged)="fieldValidity['description'] = $event"
+      ></dynamic-input>
+        <h5>Duration :</h5>
+        <app-select-input
+        [currentState]="sprint_duration"
+        [states]="sprintDurations"
+        (stateChanged)="onDurationChanged($event)"
+        (click)="$event.stopPropagation()"> 
+        </app-select-input>
+        <button type="submit" >Create sprint</button>
+      </form>
+</div>

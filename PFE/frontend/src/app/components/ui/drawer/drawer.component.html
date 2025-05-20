@@ -1,0 +1,22 @@
+<div class="drawer-container">
+    <!-- Backdrop for closing drawer when clicked -->
+    <div 
+    *ngIf="isOpen" 
+    class="backdrop" 
+    (click)="close()"
+    [@backdropAnimation]>
+    </div>
+    
+    <!-- The drawer itself -->
+    <div 
+    class="drawer" 
+    [@drawerAnimation]="isOpen ? 'open' : 'closed'">
+    <div class="drawer-header">
+        <h2>{{ title }}</h2>
+        <button class="close-btn" (click)="close()">×</button>
+    </div>
+    <div class="drawer-content">
+        <ng-content></ng-content>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <h5>Upload image :</h5>
+    <div class="upload-file">
+        <div class="image">
+            <img [src]="imageUrl" alt="Image preview" />
+            <input class="input-btn" type="file" type="file" accept="image/*" (change)="handleFileInput($event)">
+        </div>
+    </div>
+    <div class="error" *ngIf="error">{{ error }}</div>
+</div>

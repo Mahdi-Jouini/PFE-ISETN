@@ -1,0 +1,38 @@
+<div class="attachment">
+  <div class="attachment-header">
+    <h5>Attachments :</h5>
+    <app-modal #Modal ModalTitle="Upload attachment :">
+      <app-icon-button
+      appModalTrigger
+      (click)="Modal.openModal()"
+      icon="bi bi-plus"
+      />
+      <app-multiple-file-upload #MultipleFileUploadRef />
+      <button (click)="uploadAttachment()">Upload</button>
+    </app-modal>
+  </div>
+  <div class="attachments-list" *ngIf="attachments.length > 0">
+    @for (attachment of attachments; track attachment.id) {
+      <div class="file-item">
+        <a
+          class="file-info"
+          [href]="avatarUrl(attachment.url)"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="file-meta" *ngIf="!attachment.type.startsWith('image/')">
+            <h2>{{ attachment.type.split('/').pop() }}</h2>
+          </div>
+          @if (attachment.type.startsWith('image/')) {
+            <div class="image-file">
+              <img class="attachment-img" [src]="avatarUrl(attachment.url)" alt="">
+            </div>
+            
+          }
+          <div class="file-name">{{ attachment.originalName }}</div>
+        </a>
+      </div>
+    }
+  </div>
+</div>
+  

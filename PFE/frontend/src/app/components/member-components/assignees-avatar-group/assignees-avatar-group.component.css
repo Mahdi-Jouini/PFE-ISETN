@@ -1,0 +1,101 @@
+.assignees-container{
+    display: flex;
+    position: relative;
+}
+.avatar-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.assignee-avatar {
+    position: relative;
+    transition: .2s;
+}
+.assignee-avatar:not(:first-child) {
+    margin-left: -8px;
+}
+.assignee-avatar:hover {
+    z-index: 1;
+    transform: translateY(-.5rem);
+}
+.avatar-name {
+    position: absolute;
+    bottom: calc(100% + .5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    background-color: rgba(0, 0, 0, .7);
+    color: #fff;
+    font-size: .875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.assignee-avatar:hover .avatar-name {
+    opacity: 1;
+    visibility: visible;
+}
+.assignee-avatar img {
+    width: 25px;
+    height: 25px;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .1);
+}
+.assignee-avatar button{
+    flex: 1;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--input-background);
+    color: var(--text);
+    font-size: large;
+    box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .1);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--background-secondary);
+    border-radius: 5px;
+    box-shadow: var(--shadow-sm);
+    margin-top: 8px;
+    z-index: 10;
+}
+
+.dropdown-item {
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover{
+    background-color: var(--hover);
+}
+
+.member-avatar {
+    margin-right: 10px;
+}
+
+.no-members {
+    padding: 12px;
+    text-align: center;
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu {
+    animation: fadeIn 0.2s ease-out;
+}

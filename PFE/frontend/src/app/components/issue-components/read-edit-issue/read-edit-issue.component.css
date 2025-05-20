@@ -1,0 +1,13 @@
+.edit-issue-container{
+    height: 630px;
+    overflow-y: auto;
+}
+.edit-issue-form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+.edit-issue-container button{
+    margin-top: 20px;
+}

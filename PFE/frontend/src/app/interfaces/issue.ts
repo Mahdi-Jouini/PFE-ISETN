@@ -1,7 +1,9 @@
 export interface Issue {
-    name: string;
-    state: string;
-    priority: string;
-    assignedTo: string;
-    type: 'Test' | 'Task' | 'Bug';
-  }
+  ticketId: string,
+  title: string,
+  description: string,
+  type: string,
+  status: string,
+  difficulty: string,
+  sprintId: string
+}

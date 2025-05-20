@@ -1,0 +1,36 @@
+<div class="upload-container">
+  <h5>Upload Attachments :</h5>
+    <app-hover-border-effect>
+      <div
+        class="dragarea"
+        [class]="dragAreaClass"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave($event)"
+        (drop)="onDrop($event)"
+      >
+          <input   
+          type="file" 
+          multiple 
+          (change)="onFileChange($event)" 
+          >
+      <div class="file-list" *ngIf="files.length > 0">
+        <div class="file-item" *ngFor="let fileInfo of files; let i = index">
+          <div class="file-info">
+            <div class="file-meta">
+              <i class="bi bi-filetype-{{fileInfo.type}} file-icon"></i>
+              <p class="file-size">{{fileInfo.size}}</p>
+            </div>
+            <div class="file-details">
+              <div class="file-name">{{fileInfo.name}}</div>
+              <div class="progress-bar" *ngIf="fileInfo.progress > 0">
+                <div class="progress" [style.width.%]="fileInfo.progress"></div>
+              </div>
+            </div>
+          </div>
+          <button class="remove-btn" (click)="removeFile(i)">✖</button>
+        </div>
+      </div>
+      <p>Drag and drop files here or click here</p>
+    </div>
+  </app-hover-border-effect>
+  </div>

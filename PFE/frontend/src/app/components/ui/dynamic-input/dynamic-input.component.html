@@ -1,42 +1,61 @@
-<!-- dynamic-input.component.html -->
 <div class="input-label-container">
-    <label class="input-label">{{label}}</label>
-    <div 
-        #inputContainer
-        class="input-container"
-        [style.background]="backgroundStyle"
-    >
-        <input 
-            *ngIf="type !== 'file' || 'textarea' "
+    <h5 *ngIf="label">{{ label }} :</h5>
+  
+    <!-- Hover effect only when not disabled -->
+    <ng-container *ngIf="editMode ; else disabledInput">
+      <app-hover-border-effect>
+        <ng-container *ngIf="type !== 'textarea'">
+          <input
             #inputElement
             [type]="type"
             [placeholder]="placeholder"
-            [disabled]="disabled"
             class="input-field"
+            [name]="name"
             [(ngModel)]="value"
             (ngModelChange)="onInputChange($event)"
-            (blur)="onTouched(); dirty = true; validateInput()"
+            (blur)="onBlur()"
+          />
+        </ng-container>
+        <ng-container *ngIf="type === 'textarea'">
+          <textarea
+            #inputElement
+            [rows]="5"
             [name]="name"
+            [placeholder]="placeholder"
+            [(ngModel)]="value"
+            (ngModelChange)="onInputChange($event)"
+            (blur)="onBlur()"
+          ></textarea>
+        </ng-container>
+      </app-hover-border-effect>
+    </ng-container>
+    <ng-template #disabledInput>
+      <ng-container *ngIf="type !== 'textarea'">
+        <input
+          #inputElement
+          [type]="type"
+          [placeholder]="placeholder"
+          class="input-field"
+          [name]="name"
+          [(ngModel)]="value"
+          [disabled]="true"
         />
-        <input 
-            *ngIf="type === 'file'"
-            #fileInput
-            type="file"
-            [disabled]="disabled"
-            class="input-field file-input"
-            (change)="onFileChange($event)"
-            (blur)="onTouched()"
-            [name]="name"
-        />
-        <input 
-        *ngIf="type === 'textarea'"
-        type="textarea"
-        [disabled]="disabled"
-        [(ngModel)]="value"
-        class="input-field textarea"
-        (blur)="onTouched()"
-        [name]="name"
-        />
+      </ng-container>
+      <ng-container *ngIf="type === 'textarea'">
+        <textarea
+          #inputElement
+          [rows]="5"
+          [name]="name"
+          [placeholder]="placeholder"
+          [(ngModel)]="value"
+          [disabled]="true"
+        ></textarea>
+      </ng-container>
+    </ng-template>
+  
+    <div class="input-helper">
+      <span class="letter-count" *ngIf="type === 'textarea'">{{ value.length }} / 300</span>
+      <span class="error-input">{{ validationError || error }}</span>
     </div>
-    <span class="error-input">{{validationError || error}}</span>
-</div>
+  </div>
+  

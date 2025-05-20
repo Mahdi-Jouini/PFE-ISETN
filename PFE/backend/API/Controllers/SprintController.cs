@@ -10,6 +10,10 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using API.Services;
+using Domain.Interface;
+using Domain.Types;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -19,11 +23,13 @@ namespace API.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
+        private readonly IProjectNotification _notificationService;
 
-        public SprintController(IMediator mediator, IMapper mapper)
+        public SprintController(IMediator mediator, IMapper mapper, IProjectNotification notificationService)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _notificationService = notificationService;
         }
 
         [HttpGet("getSprintById")]
@@ -32,6 +38,19 @@ namespace API.Controllers
             var sprint = await _mediator.Send(new GetByIDGeneric<Sprint>(s => s.SprintId.Equals(id)));
             if (sprint == null)
                 return NotFound("Sprint not found");
+
+            var sprintDto = _mapper.Map<SprintDTO>(sprint);
+            return Ok(sprintDto);
+        }
+        [HttpGet("getActiveSprint")]
+        public async Task<ActionResult<SprintDTO>> GetActiveSprint(string projectId)
+        {
+            var sprint = await _mediator.Send(new GetByIDGeneric<Sprint>(s =>
+            s.ProjectId.Equals(projectId) &&
+            s.SprintState == SprintState.InProgress
+            ));
+            if (sprint == null)
+                return NotFound("Active sprint not found");
 
             var sprintDto = _mapper.Map<SprintDTO>(sprint);
             return Ok(sprintDto);
@@ -55,35 +74,58 @@ namespace API.Controllers
                 return NotFound("No sprints found for this project");
 
             // Map sprints to DTOs
-            var sprintDtos = sprints.Select(sprint => _mapper.Map<SprintDTO>(sprint)).ToList();
+            var sprintDtos = sprints.Select(sprint => _mapper.Map<SprintDTO>(sprint));
             return Ok(sprintDtos);
         }
 
         [HttpPost("createSprint")]
         public async Task<IActionResult> CreateSprint([FromBody] SprintDTO sprintDTO)
         {
-            
-            var project = await _mediator.Send(new GetByIDGeneric<Project>(p => p.ProjectId.Equals(sprintDTO.ProjectId)));
-            if (project == null)
-                return NotFound("Project not found");
-
             var sprint = _mapper.Map<Sprint>(sprintDTO);
             var result = await _mediator.Send(new PostGeneric<Sprint>(sprint));
 
-            return Ok(new { Message = result, SprintId = sprint.SprintId });
+            await _notificationService.SendSprintNotification(
+                sprintId: sprint.SprintId,
+                type: NotificationType.SprintCreated,
+                message: $"New sprint '{sprint.Title}' was created",
+                actorId: User.FindFirst(ClaimTypes.NameIdentifier)?.Value
+            );
+            return Ok(new { sprint });
         }
 
         [HttpPut("updateSprint")]
         public async Task<IActionResult> UpdateSprint([FromBody] SprintDTO sprintDTO)
         {
-            // Check if sprint exists
             var existingSprint = await _mediator.Send(new GetByIDGeneric<Sprint>(s => s.SprintId.Equals(sprintDTO.SprintId)));
             if (existingSprint == null)
                 return NotFound("Sprint not found");
 
-            var sprint = _mapper.Map<Sprint>(sprintDTO);
-            var result = await _mediator.Send(new PutGeneric<Sprint>(sprint));
+            _mapper.Map(sprintDTO, existingSprint);
 
+            var result = await _mediator.Send(new PutGeneric<Sprint>(existingSprint));
+
+            return Ok(new { Message = result });
+        }
+
+        [HttpPut("updateSprintState")]
+        public async Task<IActionResult> UpdateSprintState(string sprintId, SprintState state)
+        {
+            var sprint = await _mediator.Send(new GetByIDGeneric<Sprint>(s => s.SprintId.Equals(sprintId)));
+            if (sprint == null)
+            {
+                return NotFound($"Sprint with ID {sprintId} not found");
+            }
+            sprint.SprintState = state;
+            if (state == SprintState.InProgress)
+            {
+                sprint.StartDate = DateTime.Now;
+                if (sprint.Duration != null)
+                {
+                    int durationInWeeks = (int)sprint.Duration;
+                    sprint.CompletionDate = sprint.StartDate.AddDays(durationInWeeks * 7);
+                }
+            }
+            var result = await _mediator.Send(new PutGeneric<Sprint>(sprint));
             return Ok(new { Message = result });
         }
 

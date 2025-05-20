@@ -1,0 +1,28 @@
+<div class="create-project-container">
+    <form [formGroup]="createProjectForm" (ngSubmit)="createProject()">
+            <dynamic-input
+                label="Project title"
+                type="text"
+                placeholder="Enter your project title"
+                formControlName="title"
+                [enableValidation]="true"
+                [editMode]="true"
+                [validation]="{ required: true, minLength: 2 }"
+                (validityChanged)="fieldValidity['title'] = $event"
+            ></dynamic-input>
+            <dynamic-input
+                label="Project description"
+                type="text"
+                placeholder="Enter your project description"
+                formControlName="description"
+                [enableValidation]="true"
+                [editMode]="true"
+                [validation]="{ required: true, minLength: 2 }"
+                (validityChanged)="fieldValidity['description'] = $event"
+            ></dynamic-input>
+            <app-multiple-file-upload
+            #MultipleFileUploadRef
+            />
+        <button type="submit" >Create</button>
+    </form>
+</div>

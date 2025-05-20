@@ -18,5 +18,6 @@ namespace Domain.Models
         public string? Avatar { get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }
+        public virtual ICollection<UserNotification> UserNotifications { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+<div class="assignees-container">
+    <div class="avatar-group">
+        @for (Assignee of Assignees; track Assignee.memberId) {
+        <div class="assignee-avatar">
+            <span class="avatar-name">{{Assignee.user.firstName}} {{Assignee.user.lastName}}</span>
+            <img [src]="avatarUrl(Assignee.user.avatar)" alt="{{Assignee.user.firstName}} {{Assignee.user.lastName}}">
+        </div>
+        }
+        <div class="assignee-avatar">
+            <button class="assign" (click)="toggleDropdown()">
+                <i class="bi bi-plus"></i>
+            </button>
+        </div>
+        <div class="dropdown-menu" *ngIf="showDropdown">
+            @if (members.length > 0) {
+                <div class="dropdown-item" 
+                        *ngFor="let member of members"
+                        [class.disabled]="isAssigned(member.memberId)"
+                        (click)="!isAssigned(member.memberId) && assignMember(member.memberId)">
+                    <app-user-banner
+                    *ngIf="!isAssigned(member.memberId)"
+                    [user]="member.user"
+                    />
+                </div>
+            } @else {
+                <div class="no-members">No members available</div>
+            }
+        </div>
+    </div>
+    
+</div>

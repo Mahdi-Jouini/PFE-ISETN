@@ -1,169 +1,131 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 :root {
-  /* Base Colors */
-  --background-primary: #ffffff;
-  --background-secondary: #c8c8c8;
-  --background-tertiary: #edf0f5;
-  
-  /* Text Colors */
-  --text-primary: #202226;
-  --text-secondary: #4a5568;
-  --text-tertiary: #718096;
-  --text-disabled: #a0aec0;
-  
-  /* UI Element Colors */
-  --surface-primary: #ffffff;
-  --surface-secondary: #f7fafc;
-  --surface-tertiary: #edf2f7;
-  
-  /* Input Fields */
-  --input-background: #f0f2f5;
-  --input-border: #cbd5e0;
-  --input-focus-border: #3f51b5;
-  
-  /* Interactive Elements */
-  --primary-color: #3f51b5;
-  --primary-hover: #303f9f;
-  --primary-active: #283593;
-  
-  /* Secondary Action */
-  --secondary-color: #7986cb;
-  --secondary-hover: #5c6bc0;
-  --secondary-active: #3f51b5;
-  
-  /* Accent Colors */
-  --accent-1: #00bcd4;
-  --accent-2: #4caf50;
-  --accent-3: #ff9800;
-  --accent-4: #f44336;
-  
-  /* Status Colors */
+  --background: #F5F7FB;
+  --background-secondary: #e1dfec;
+
+  --primary: #3378D1;
+  --primary-lighter: #afc8e9;
+  --primary-light: #88addd;
+  --primary-dark: #2b5a96;
+
+  --secondary: #4A90E2;
+  --secondary-transparent: #4A90E2;
+  --secondary-light: #6FB4FF;
+  --secondary-dark: #2D5C9F;
+
+  --accent: #ba128d;
+  --accent-light: #ba128d;
+  --accent-dark: #ba128d;
+
+  --text: #23262A;
+  --input-background: #e7e7e7;
+  --border: #6d6e6f;
+
   --success: #2e7d32;
   --warning: #ed6c02;
   --error: #d32f2f;
   --info: #0288d1;
-  
-  /* Borders */
-  --border-color: #e2e8f0;
-  --border-focus: #3f51b5;
-  
-  /* Shadows */
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.07);
+} 
+  .dark-theme {
+  --background: #202225;
+  --background-secondary: #2d3033;
+
+  --primary: #3378D1;
+  --primary-lighter: #afc8e9;
+  --primary-light: #88addd;
+  --primary-dark: #2b5a96;
+
+  --secondary: #4A90E2;
+  --secondary-transparent: #4A90E2;
+  --secondary-light: #6FB4FF;
+  --secondary-dark: #2D5C9F;
+
+  --accent: #ba128d;
+  --accent-light: #ba128d;
+  --accent-dark: #ba128d;
+
+  --text: #e7e7e7;
+  --input-background: #3a3a3e;
+  --border: #6d6e6f;
+
+  --success: #2e7d32;
+  --warning: #ed6c02;
+  --error: #d32f2f;
+  --info: #0288d1;
+
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.07);
 
-  --btn-hover: #00000020;
-  --btn-active: #00000030;
-} 
-  .dark-theme {
-    /* Base Colors */
-    --background-primary: #202225;
-    --background-secondary: #2d3033;
-    --background-tertiary: #36393f;
+  }
+  *{
     
-    /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #b9bbbe;
-    --text-tertiary: #8e9297;
-    --text-disabled: #686c72;
-    
-    /* UI Element Colors */
-    --surface-primary: #2f3136;
-    --surface-secondary: #36393f;
-    --surface-tertiary: #40444b;
-    
-    /* Input Fields */
-    --input-background: #40444b;
-    --input-border: #4f545c;
-    --input-focus-border: #7986cb;
-    
-    /* Interactive Elements */
-    --primary-color: #7986cb;
-    --primary-hover: #8c97db;
-    --primary-active: #9fa8da;
-    
-    /* Secondary Action */
-    --secondary-color: #5c6bc0;
-    --secondary-hover: #7986cb;
-    --secondary-active: #9fa8da;
-
-
-    
-    /* Accent Colors */
-    --accent-1: #29b6f6;
-    --accent-2: #66bb6a;
-    --accent-3: #ffb74d;
-    --accent-4: #ef5350;
-    
-    /* Status Colors */
-    --success: #4caf50;
-    --warning: #ff9800;
-    --error: #f44336;
-    --info: #2196f3;
-    
-    /* Borders */
-    --border-color: #40444b;
-    --border-focus: #7986cb;
-    
-    /* Shadows */
-    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
   body {
-    background-color: var(--background-primary);
-    color: var(--text-primary);
+    background-color: var(--background);
+    color: var(--text);
     transition: background-color 0.3s ease, color 0.3s ease;
     display: block;
     margin: 0;
     padding: 0;  
     font-family: 'calibri';  
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: var(--text-tertiary);
+  }
   .avatar{
     width: 35px;
     height: 35px;
     border-radius: 50%;
   }
-  .primary-button{
-    margin-top: auto;
-    width: 100%;
-    height: 45px;
-    border-radius: 5px ;
-    background-color: var(--background-primary);
-    border-bottom: solid outset;
-    border-image-slice: 1;
-    border-width: 3px;
-    border-image-source: radial-gradient(circle, var(--primary-color) 10%, #ffffff00 80%);
-    border-top: 0;
-    transition: 0.15s ease-in-out;
-    color: var(--primary-text);
-  }
-  .primary-button:hover{
-    border-image-source: radial-gradient(circle, var(--primary-color) 0%, #ffffff00 100%);
-  }
   p{
+    margin: 0 0 10px 0;
     color: var(--text-secondary);
     font-size: medium;
   }
-  a{
-    font-size: small;
-    margin: 0;
-  }
-
   h3{
-    color: var(--text-primary);
+    color: var(--text);
     font-size: large;
   }
-  .dropdown-item{
-    background-color: var(--background-secondary);
-    outline: none;
-    border-top: 1px solid var(--text-tertiary);
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
-    height: 40px;
-    width: 100%;
-    color: var(--text-tertiary);
+  h4{
+    color: var(--text);
+    margin: 0 0 10px 0;
+  }
+  h5{
+    /*Labels*/
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+    color: var(--text);
   }
 
+  .primary-btn {
+  width: 150px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  will-change: box-shadow,transform;
+  background: radial-gradient( 100% 100% at 100% 0%, #e6e6e6 0%, #eeeeee 100% );
+  box-shadow: var(--shadow-md);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: black;
+  height: 2.6em;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}

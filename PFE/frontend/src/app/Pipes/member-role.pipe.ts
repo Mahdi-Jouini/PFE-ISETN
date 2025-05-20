@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true
 })
 export class MemberRolePipe implements PipeTransform {
-  transform(value: number): string {
+  transform(value: string): string {
     switch (value) {
-      case 0: return 'Product Owner';
-      case 1: return 'SCRUM Master';
-      case 2: return 'Developer';
-      case 3: return 'Tester';
+      case 'Product_Owner': return 'Product Owner';
+      case 'Scrum_Master': return 'SCRUM Master';
+      case 'Developer': return 'Developer';
+      case 'Tester': return 'Tester';
       default: return 'Unknown Role';
     }
   }

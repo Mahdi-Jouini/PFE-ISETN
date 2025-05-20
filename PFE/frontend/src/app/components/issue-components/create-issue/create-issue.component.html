@@ -1,0 +1,32 @@
+<div class="create-issue-container">
+    <form [formGroup]="createIssueForm" (ngSubmit)="createIssue()">
+          <app-select-input
+            [currentState]="issue_type"
+            [states]="issueTypes"
+            (stateChanged)="onTypeChanged(issue, $event)"
+            (click)="$event.stopPropagation()"
+            [IssueTypeSelect]="true"> 
+          </app-select-input>
+          <dynamic-input
+          label="Issue Title"
+          type="text"
+          placeholder="Enter your Issue ditle"
+          formControlName="title"
+          [enableValidation]="true"
+          [editMode]="true"
+          [validation]="{ required: true, minLength: 2 }"
+          (validityChanged)="fieldValidity['title'] = $event"
+        ></dynamic-input>
+        <dynamic-input
+          label="Issue description"
+          type="text"
+          placeholder="Enter your issue description"
+          formControlName="description"
+          [enableValidation]="true"
+          [editMode]="true"
+          [validation]="{ required: true, minLength: 2 }"
+          (validityChanged)="fieldValidity['description'] = $event"
+        ></dynamic-input>
+        <button type="submit" >Create Issue</button>
+      </form>
+</div>

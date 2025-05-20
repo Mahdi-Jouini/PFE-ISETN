@@ -1,0 +1,46 @@
+<div class="edit-issue-container">
+    <form [formGroup]="editIsuueForm" class="edit-issue-form" (ngSubmit)="editIssue()">
+        <app-icon-button
+            icon="bi bi-pencil-fill"
+            (click)="onEditModeSwitch()"
+            style="align-self: flex-end;"
+        />
+        <dynamic-input
+            label="Issue Title"
+            type="text"
+            placeholder="Enter your Issue ditle"
+            formControlName="title"
+            [editMode]= 'isEditMode'
+            [enableValidation]="true"
+            [validation]="{ required: true, minLength: 2 }"
+            (validityChanged)="fieldValidity['title'] = $event"
+        ></dynamic-input>
+        <dynamic-input
+            label="Issue description"
+            type="textarea"
+            placeholder="Enter your issue description"
+            formControlName="description"
+            [editMode]= 'isEditMode'
+            [enableValidation]="true"
+            [validation]="{ required: true, minLength: 2 }"
+            (validityChanged)="fieldValidity['description'] = $event"
+        ></dynamic-input>
+        <h5>Status :</h5>
+        <app-select-input
+            [currentState]="issue.status"
+            [states]="statusStates"
+            (stateChanged)="onStateChanged(issue, $event)"
+            (click)="$event.stopPropagation()"> 
+        </app-select-input>
+        <h5>Story Points :</h5>
+        <app-story-point-input
+            [issueId]="issue.ticketId"
+            [currentStoryPoint]="issue.difficulty"
+            (storyPointChanged)="onStoryPointChanged($event)"
+        />
+        <div>
+        <app-attachment [ticketId]="issue.ticketId"/>
+        </div>
+        <button class="primary-btn" type="submit" >Save Changes</button>
+    </form>
+</div> 

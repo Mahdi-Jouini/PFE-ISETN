@@ -1,0 +1,15 @@
+.active-sprint-container{
+    height: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.user-story{
+    margin: 0;
+}
+.remain-date{
+    margin-left: auto;
+    margin-bottom: 0;
+}

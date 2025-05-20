@@ -1,0 +1,35 @@
+<div class="sprint-container">
+    <div class="sprint-info">
+        <button class="collapse-btn" (click)="collapse()">
+        <i *ngIf="isCollapsed()" class="bi bi-chevron-up"></i>
+        <i *ngIf="!isCollapsed()" class="bi bi-chevron-down"></i>
+        </button>
+        <div>
+            <h4 class="user-story">{{ sprint.title }}</h4>
+        </div>
+
+        <p class="issues-number">Issues: </p>
+        <div class="sprint-state">
+            <app-select-input
+            [currentState]="sprint.sprintState"
+            [states]="SprintStates"
+            (stateChanged)="onStateChanged(sprint, $event)"
+            (click)="$event.stopPropagation()"> 
+            </app-select-input>
+        </div>
+        <app-modal #createIssueModal ModalTitle="Sprint Details">
+            <app-icon-button
+            appModalTrigger
+            (click)="createIssueModal.openModal()"
+            icon="bi bi-three-dots-vertical"
+            />
+            <app-read-edit-sprint [sprint]="sprint" [modalRef]="createIssueModal" />
+        </app-modal>
+    </div>
+    <div 
+        class="issues-list-container"
+        [@collapseAnimation]="isCollapsed() ? 'expanded' : 'collapsed'"
+    >
+        <ng-content></ng-content>
+    </div>
+</div>

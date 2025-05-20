@@ -1,0 +1,43 @@
+  .sprint-container{
+    position: relative;
+  }
+  .sprint-info {
+    background-color: var(--background-secondary);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px 0 10px;
+  }
+  .collapse-btn{
+    height: 30px;
+    padding: 0;
+    vertical-align: bottom;
+    aspect-ratio: 1;
+    background: none;
+    border: none;
+    color: var(--text);
+    border-radius: 50%;
+    transition: all 0.2s;
+    
+  }
+  .collapse-btn:hover{
+    background-color: var(--btn-hover);
+  }
+  .collapse-btn:active{
+    background-color: var(--btn-active);
+  }
+  .collapse-btn .bi::before{
+    vertical-align: middle;
+  }
+
+  .user-story{
+    margin: 0;
+  }
+  .sprint-state{
+    margin-left: auto;
+  }
+  .issues-list-container{
+    position: relative;
+  }
+  

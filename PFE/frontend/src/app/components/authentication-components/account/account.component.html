@@ -1,0 +1,15 @@
+<div *ngIf="user" class="notification-container">
+  <app-drawer
+    [isOpen]="isDrawerOpen" 
+    [title]="drawerTitle"
+    (closed)="onDrawerClosed()">
+    <div>
+    <img class="avatar" [src]="avatarUrl(user.avatar)" alt="">
+    <button (click)="logOut()">Log Out</button>
+    </div>
+  </app-drawer>
+    <app-user-banner
+    [user]="user"
+    (click)="toggleDrawer()"
+    />
+</div>  

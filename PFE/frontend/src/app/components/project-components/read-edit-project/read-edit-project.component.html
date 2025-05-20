@@ -1,0 +1,33 @@
+<div class="read-edit-project-container">
+    <div class="read-edit-project-header">
+        <h5>Project Details :</h5>
+        <app-icon-button
+        icon="bi bi-pencil-fill"
+        (click)="onEditModeSwitch()"
+        /> 
+    </div>
+    <form [formGroup]="editProjectForm" class="edit-project-form" (ngSubmit)="editProject()">
+        <dynamic-input
+            label="Project Title"
+            type="text"
+            placeholder="Enter your project ditle"
+            formControlName="title"
+            [editMode]= 'isEditMode'
+            [enableValidation]="true"
+            [validation]="{ required: true, minLength: 2 }"
+            (validityChanged)="fieldValidity['title'] = $event"
+        ></dynamic-input>
+        <dynamic-input
+            label="Project description"
+            type="textarea"
+            placeholder="Enter your project description"
+            formControlName="description"
+            [editMode]= 'isEditMode'
+            [enableValidation]="true"
+            [validation]="{ required: true, minLength: 2 }"
+            (validityChanged)="fieldValidity['description'] = $event"
+        ></dynamic-input>
+        <button class="primary-btn" type="submit" >Save Changes</button>
+    </form>
+    <app-attachment [projectId]="project.projectId"/>
+</div>

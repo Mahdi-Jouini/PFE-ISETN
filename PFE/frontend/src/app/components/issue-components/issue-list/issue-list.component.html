@@ -1,0 +1,48 @@
+<div class="issues-list">
+  <div class="issues-actions">
+    <div>
+      <app-modal #createIssueModal ModalTitle="Create Issue">
+        <app-icon-button
+        appModalTrigger
+        (click)="createIssueModal.openModal()"
+        icon="bi bi-plus"
+        label="Create Issue"
+        />
+        <app-create-issue [sprintId]="sprintId" (createIssueResult)="onCreateIssueResult($event, createIssueModal)"/>
+      </app-modal>
+      </div>
+      <app-icon-button
+        icon="bi bi-funnel-fill"
+      />
+  </div>
+  <div
+    *ngFor="let issue of issues; let idx = index" 
+    style="padding: 5px;"
+    (mouseenter)="hover(idx)"
+    (mouseleave)="unhover()"
+    (click)="selectIssue(issue)"
+    class="issue-container"
+  >
+    <div class="hover-background" [@enterAnimation] *ngIf="hovered" [ngStyle]="hoverStyles"></div>
+    <div #Issue class="issue">
+      <app-issue-icon [type]="issue.type"/>
+      <h4 class="issue-name">{{ issue.title }}</h4>
+      <div class="issue-state">
+        <app-select-input
+          [currentState]="issue.status"
+          [states]="statusStates"
+          (stateChanged)="onStateChanged(issue, $event)"
+          (click)="$event.stopPropagation()">
+        </app-select-input>
+      </div>
+      <div class="issue-priority">
+        {{ issue.difficulty | issuePriority }}
+      </div>
+      <div class="assigned-to">
+        <app-assignees-avatar-group
+        [issueId] = issue.ticketId 
+        [projectId]="projectId"/>
+      </div>
+    </div>
+  </div>
+</div>

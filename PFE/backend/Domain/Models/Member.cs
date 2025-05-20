@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Domain.Types;
 
 public class Member
 {
@@ -10,6 +11,7 @@ public class Member
     public string UserId { get; set; }
     public string ProjectId { get; set; }
     public MemberRole Role { get; set; }
+    public InvitationStatus Status { get; set; }
 
     [ForeignKey("UserId")]
     public virtual User User { get; set; }
@@ -17,6 +19,5 @@ public class Member
     [ForeignKey("ProjectId")]
     public virtual Project Project { get; set; }
 
-    // Navigation property for the many-to-many relationship
     public virtual ICollection<TicketMember> TicketMembers { get; set; }
 }

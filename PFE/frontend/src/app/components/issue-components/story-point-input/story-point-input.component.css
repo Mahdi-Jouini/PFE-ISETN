@@ -1,0 +1,61 @@
+.state-dropdown {
+    position: relative;
+    width: fit-content;
+    
+    
+}
+
+.selected-state {
+    height: 20px;
+    padding: 5px 15px 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 0.5rem;
+    background-color: var(--input-background);
+    font-weight: bold;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    right: 0;
+    height: 135px;
+    width: 135px;
+    padding: 5px;
+    overflow-y: auto;
+    background-color: var(--background-secondary);
+    border-radius:4px;
+    z-index: 10;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-sm)
+}
+
+.dropdown-item {
+    aspect-ratio: 1;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--input-background);
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+.dropdown-item:hover{
+    background-color: var(--secondary-hover);
+}
+.dropdown-item.selected {
+    color: var(--primary-hover);
+}

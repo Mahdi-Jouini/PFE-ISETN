@@ -34,10 +34,13 @@ export class ThemeService {
 
   private updateTheme(): void {
     const isDark = this.darkMode.value;
-    
+
     if (isPlatformBrowser(this.platformId)) {
-      document.body.classList.toggle('dark-theme', isDark);
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      const body = document.body;
+      if (body) {
+        body.classList.toggle('dark-theme', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
     }
   }
 }

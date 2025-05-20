@@ -1,0 +1,56 @@
+<div class="notification-container">
+  <app-drawer
+    [isOpen]="isDrawerOpen" 
+    [title]="drawerTitle"
+    (closed)="onDrawerClosed()">
+      <div class="notification-header">
+        <button 
+          *ngIf="unreadCount > 0"
+          pButton 
+          label="Mark all as read"
+          class="p-button-text"
+          (click)="markAllAsRead(); $event.stopPropagation()">
+        </button>
+      </div>
+      <div class="notification-list-container">
+        <div *ngIf="notifications.length === 0" class="empty-notification">
+          <p>No notifications</p>
+        </div>
+        <div
+          *ngFor="let notification of notifications.slice(0, notificationCount)" 
+          class="notification-item"
+          [ngClass]="{'unread': !notification.isRead}"
+          (click)="handleNotificationClick(notification)">
+          <div class="notification-icon">
+            <mat-icon>{{ getIconForType(notification.type) }}</mat-icon>
+          </div>
+          <div class="notification-content">
+            <div class="notification-message">
+              <span *ngIf="notification.actorName" class="actor-name">{{ notification.actorName }}</span>
+              {{ notification.message }}
+            </div>
+            <div class="notification-details" *ngIf="notification.projectName || notification.sprintName || notification.ticketTitle">
+              <span *ngIf="notification.projectName">{{ notification.projectName }}</span>
+              <span *ngIf="notification.sprintName"> > {{ notification.sprintName }}</span>
+              <span *ngIf="notification.ticketTitle"> > {{ notification.ticketTitle }}</span>
+            </div>
+            <p class="notification-time">{{ formatTime(notification.timestamp) }}</p>
+          </div>
+        </div>
+        <div *ngIf="notifications.length > notificationCount" class="show-more-container">
+          <button pButton class="p-button-text show-more-button" label="Show more" (click)="showMore()"></button>
+        </div>
+        <div *ngIf="notificationCount > 5 && notifications.length > 5" class="show-more-container">
+          <button pButton class="p-button-text show-less-button" label="Show less" (click)="showLess()"></button>
+        </div>
+      </div>
+  </app-drawer>
+  <button class="notification-button" mat-icon-button aria-label="Notifications" (click)="toggleDrawer()">
+    <mat-icon [matBadge]="unreadCount > 0 ? unreadCount : null" 
+              [matBadgeHidden]="unreadCount === 0"
+              matBadgeColor="warn">
+              
+      notifications
+    </mat-icon>
+  </button>
+</div>  

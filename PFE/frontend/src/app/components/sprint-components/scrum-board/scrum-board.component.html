@@ -1,0 +1,31 @@
+<div class="container">
+<app-active-sprint [sprint]="activeSprint"/>
+<div class="scrum-board-container">
+  @for (currentStatus of status; track $index) {
+    <div class="board-column">
+      <div class="column-header">
+        <h5>{{ currentStatus === 'ToDo' ? 'To Do' : currentStatus }}</h5>
+        <p>{{getIssuesByStatus(currentStatus).length}}</p>
+      </div>
+      <div
+        cdkDropList
+        [id]="currentStatus + 'List'"
+        [cdkDropListData]="getIssuesByStatus(currentStatus)"
+        [cdkDropListConnectedTo]="getDropListConnections(currentStatus)"
+        class="issue-list"
+        (cdkDropListDropped)="drop($event, currentStatus)"
+      >
+        @for (issue of getIssuesByStatus(currentStatus); track issue.ticketId) {
+          <div class="issue-card" cdkDrag>
+            <app-scrum-board-issue [issue]="issue" [projectId]="projectId"></app-scrum-board-issue>
+            <div class="issue-drag-placeholder" *cdkDragPlaceholder></div>
+          </div>
+        }
+        @if (getIssuesByStatus(currentStatus) === null) {
+          <div class="empty-list">No issues</div>
+        }
+      </div>
+    </div>
+  }  
+</div>
+</div>

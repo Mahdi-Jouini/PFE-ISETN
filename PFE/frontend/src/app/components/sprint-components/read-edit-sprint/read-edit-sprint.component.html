@@ -1,0 +1,30 @@
+<div class="edit-sprint-container">
+    <form [formGroup]="editSprintForm" class="edit-sprint-form" (ngSubmit)="editSprint()">
+            <app-icon-button
+                icon="bi bi-pencil-fill"
+                (click)="onEditModeSwitch()"
+            />
+            <dynamic-input
+                label="Sprint Title"
+                type="text"
+                placeholder="Enter your sprint ditle"
+                formControlName="title"
+                [editMode]= 'isEditMode'
+                [enableValidation]="true"
+                [validation]="{ required: true, minLength: 2 }"
+                (validityChanged)="fieldValidity['title'] = $event"
+            ></dynamic-input>
+            <dynamic-input
+                label="Sprint description"
+                type="textarea"
+                placeholder="Enter your sprint description"
+                formControlName="description"
+                [editMode]= 'isEditMode'
+                [enableValidation]="true"
+                [validation]="{ required: true, minLength: 2 }"
+                (validityChanged)="fieldValidity['description'] = $event"
+            ></dynamic-input>
+            <app-attachment [sprintId]="sprint.sprintId"/>
+        <button type="submit" >Save Changes</button>
+    </form>
+</div> 

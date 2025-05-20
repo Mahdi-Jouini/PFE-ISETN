@@ -1,0 +1,22 @@
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-col {
+  flex: 1;
+}
+
+.buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+::ng-deep .mat-stepper-vertical, 
+::ng-deep .mat-stepper-horizontal {
+  background: none !important;
+  font-family: 'Calibri' !important;
+  padding: 0;
+}

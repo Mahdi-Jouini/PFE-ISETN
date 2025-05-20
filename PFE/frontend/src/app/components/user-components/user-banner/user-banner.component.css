@@ -1,0 +1,16 @@
+.user-banner{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+    cursor: pointer;
+
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+.user-info p{
+    margin: 0;
+}
